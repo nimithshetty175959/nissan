@@ -48,7 +48,9 @@ export default async function decorate(block) {
      linksWrapper.append(element);
    });
    linksWrapper.classList.add("social-media-wrapper");
-   const targetElement = document.querySelector('#hero-on-social-media');
+   const socialMediaContainer = document.querySelector('.social-media-links div');
+   socialMediaContainer.classList.add("nissan-on-social-media");
+   const targetElement = document.querySelector('.nissan-on-social-media');
    targetElement.insertAdjacentElement('afterend', linksWrapper); 
  
 }

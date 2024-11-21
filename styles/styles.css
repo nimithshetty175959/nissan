@@ -157,13 +157,13 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--footer-link-color);
   text-decoration: none;
   word-break: break-word;
 }
 
 a:hover {
-  color: var(--link-hover-color);
+  color: var(--footer-link-color);
   text-decoration: underline;
 }
 
