@@ -87,7 +87,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  /* height: var(--nav-height); */
 }
 
 header .header,
@@ -238,6 +238,11 @@ main > .section > div {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
+}
+
+.default-content-wrapper {
+  display: flex;
+  gap: 19px;
 }
 
 main > .section:first-of-type {
