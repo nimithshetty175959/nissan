@@ -15,13 +15,22 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "quote",
+      "tab",
+      "banner"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "banner",
+    "components": [
+      "slides"
     ]
   },
   {
