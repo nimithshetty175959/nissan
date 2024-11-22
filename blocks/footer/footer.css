@@ -15,8 +15,9 @@ footer .footer p {
 }
 
 footer .footer .footer-section-one {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
 }
 
 @media (width <= 900px) {
@@ -39,6 +40,7 @@ footer .footer .footer-section-one {
 
 .footer-section-one h3 {
   font-size: 16px;
+  margin-bottom: 4px;
 }
 
 .social-media-wrapper {
@@ -63,7 +65,8 @@ footer .footer .footer-section-one {
   display: flex;
   flex-wrap: wrap;
 }
-.footer-section-two ul li {
+.footer-section-two ul li,
+.footer-section-two p {
   padding: 24px 24px 24px 0;
 }
 .footer-legal > div {
