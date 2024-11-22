@@ -23,6 +23,6 @@ export default function decorate(block) {
     block.append(carNavigation);
   } else {
     block.innerHTML = '';
-    block.append(cloneBlock.children[0]);
+    block.append(cloneBlock.children);
   }
 }
