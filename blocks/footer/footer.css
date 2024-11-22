@@ -4,10 +4,13 @@ footer {
   color: white
 }
 
-footer .footer > div {
+.footer-section-one,.footer-section-two {
   margin: auto;
   max-width: 1200px;
   padding: 24px;
+}
+footer .footer .section-one-wrapper{
+  background-color: var(--footer-bg-light-color);
 }
 
 footer .footer p {
