@@ -4,7 +4,7 @@
  * @param {*} classes
  * @returns
  */
-const createElement = (type = "div", classes = []) => {
+const createElement = (type = 'div', classes = []) => {
   const element = document.createElement(type);
   classes.forEach((c) => {
     element.classList.add(c);
@@ -12,12 +12,10 @@ const createElement = (type = "div", classes = []) => {
   return element;
 };
 
-const elementHasClass = (elem, classname) => {
-  return elem.classList.contains(classname);
-};
+const elementHasClass = (elem, classname) => elem.classList.contains(classname);
 
 const removeClassesFromElements = (elements, classes) => {
-  for (let i = 0; i < elements.length; i++) {
+  for (let i = 0; i < elements.length; i += 1) {
     const element = elements[i];
     classes.forEach((cl) => {
       element.classList.remove(cl);
@@ -26,7 +24,7 @@ const removeClassesFromElements = (elements, classes) => {
 };
 
 const addClassesToElements = (elements, classes) => {
-  for (let i = 0; i < elements.length; i++) {
+  for (let i = 0; i < elements.length; i += 1) {
     const element = elements[i];
     classes.forEach((cl) => {
       element.classList.add(cl);
@@ -37,14 +35,14 @@ const addClassesToElements = (elements, classes) => {
 const getThumbnailImages = (block) => {
   const thumbnailImages = [];
   const mainElements = block.children;
-  for (let i = 0; i < mainElements.length; i++) {
+  for (let i = 0; i < mainElements.length; i += 1) {
     const element = mainElements[i];
     const subElements = element.children;
     const images = [];
-    for (let j = 0; j < subElements.length; j++) {
+    for (let j = 0; j < subElements.length; j += 1) {
       const subElement = subElements[j];
       const tagName = subElement.children[0].tagName.toLowerCase();
-      if (tagName === "picture") {
+      if (tagName === 'picture') {
         images.push(subElement);
       }
     }
@@ -60,30 +58,30 @@ const getThumbnailImages = (block) => {
  */
 const createBanerItem = (element, index) => {
   const dataItems = element.children;
-  const bannerContainer = createElement("div", [
-    "banner-container",
-    "nav-image-block-" + index,
+  const bannerContainer = createElement('div', [
+    'banner-container',
+    `nav-image-block-${index}`,
   ]);
   if (index === 0) {
-    addClassesToElements([bannerContainer], ["active"]);
+    addClassesToElements([bannerContainer], ['active']);
   }
-  const imagesBlock = createElement("div", ["image-block"]);
-  const dataWrapper = createElement("div", ["data-wrapper"]);
-  const dataBlock = createElement("div", ["data-block"]);
-  const buttonBlock = createElement("div", ["button-block"]);
+  const imagesBlock = createElement('div', ['image-block']);
+  const dataWrapper = createElement('div', ['data-wrapper']);
+  const dataBlock = createElement('div', ['data-block']);
+  const buttonBlock = createElement('div', ['button-block']);
   const imageElements = [];
 
-  for (let i = 0; i < dataItems.length; i++) {
-    const element = dataItems[i].cloneNode(true);
-    const tagName = element.children[0].tagName.toLowerCase();
-    if (tagName === "picture") {
-      element.classList.add("image-item");
-      imageElements.push(element);
-    } else if (elementHasClass(element.children[0], "button-container")) {
-      element.classList.add("button-item");
-      buttonBlock.append(element);
+  for (let i = 0; i < dataItems.length; i += 1) {
+    const elementCopy = dataItems[i].cloneNode(true);
+    const tagName = elementCopy.children[0].tagName.toLowerCase();
+    if (tagName === 'picture') {
+      elementCopy.classList.add('image-item');
+      imageElements.push(elementCopy);
+    } else if (elementHasClass(elementCopy.children[0], 'button-container')) {
+      elementCopy.classList.add('button-item');
+      buttonBlock.append(elementCopy);
     } else {
-      dataBlock.append(element);
+      dataBlock.append(elementCopy);
     }
   }
   imagesBlock.append(imageElements[0]);
@@ -95,12 +93,12 @@ const createBanerItem = (element, index) => {
 };
 
 const getCarouselNav = (block) => {
-  const bannerNavConrainer = createElement("div", ["banner-nav-container"]);
-  const navTabs = createElement("div", ["nav-tabs"]);
-  const navImgBlocks = createElement("div", ["nav-image-blocks"]);
-  let activeClass = "active";
-  ["HYBRID", "100% ELECTRIC", "ESSENCE"].forEach((value, i) => {
-    const navTab = createElement("div", ["nav-tab"]);
+  const bannerNavConrainer = createElement('div', ['banner-nav-container']);
+  const navTabs = createElement('div', ['nav-tabs']);
+  const navImgBlocks = createElement('div', ['nav-image-blocks']);
+  const activeClass = 'active';
+  ['HYBRID', '100% ELECTRIC', 'ESSENCE'].forEach((value, i) => {
+    const navTab = createElement('div', ['nav-tab']);
     navTab.innerHTML = `<span>${value}</span>`;
     if (i === 0) {
       navTab.classList.add(activeClass);
@@ -109,32 +107,32 @@ const getCarouselNav = (block) => {
   });
   const thumnailImages = getThumbnailImages(block);
   thumnailImages.forEach((image, i) => {
-    const imageItem = createElement("div", ["nav-image-block"]);
-    imageItem.setAttribute("data-block", "nav-image-block-" + i);
+    const imageItem = createElement('div', ['nav-image-block']);
+    imageItem.setAttribute('data-block', `nav-image-block-${i}`);
     if (i === 0) {
       imageItem.classList.add(activeClass);
     }
-    image.classList.add("image-item");
-    imageItem.addEventListener("click", () => {
-      if (!elementHasClass(imageItem, "active")) {
+    image.classList.add('image-item');
+    imageItem.addEventListener('click', () => {
+      if (!elementHasClass(imageItem, 'active')) {
         const navElements = bannerNavConrainer.querySelectorAll(
-          ".nav-image-blocks .nav-image-block"
+          '.nav-image-blocks .nav-image-block',
         );
-        const dataBlock = imageItem.getAttribute("data-block");
-        removeClassesFromElements(navElements, ["active"]);
-        addClassesToElements([imageItem], ["active"]);
+        const dataBlock = imageItem.getAttribute('data-block');
+        removeClassesFromElements(navElements, ['active']);
+        addClassesToElements([imageItem], ['active']);
 
         const parentBlock = bannerNavConrainer.parentElement;
 
         const bannerBlocks = parentBlock.querySelectorAll(
-          ".banner .banner-container"
+          '.banner .banner-container',
         );
         const bannerBlock = parentBlock.querySelector(
-          ".banner .banner-container." + dataBlock
+          `.banner .banner-container.${dataBlock}`,
         );
 
-        removeClassesFromElements(bannerBlocks, ["active"]);
-        addClassesToElements([bannerBlock], ["active"]);
+        removeClassesFromElements(bannerBlocks, ['active']);
+        addClassesToElements([bannerBlock], ['active']);
       }
     });
     imageItem.append(image);

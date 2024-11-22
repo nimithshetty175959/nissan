@@ -40,6 +40,9 @@ main .banner-wrapper {
     margin: 0;
     font-weight: 100;
 }
+.banner .data-wrapper .data-block div {
+    width: 23em;
+}
 .banner-nav-container .nav-tabs {
     display: flex;
     gap: 20px;
@@ -69,7 +72,7 @@ main .banner-wrapper {
     align-items: center;
 }
 .nav-image-blocks .nav-image-block.active {
-    border: 3px solid #FFF;
+    border: 3px solid #fff;
 }
 .nav-image-blocks .nav-image-block .image-item {
     width: 150px;
@@ -92,9 +95,9 @@ main .banner-wrapper {
 .banner .button-block .button-container a {
     background-color: white;
     color: #000;
-    width: 200px;
+    width: 171px;
     height: 45px;
-    font-size: 11px;
+    font-size: 16px;
     display: grid;
     align-items: center;
     text-transform: uppercase;
