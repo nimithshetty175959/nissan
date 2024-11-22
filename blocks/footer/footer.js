@@ -19,7 +19,7 @@ export default async function decorate(block) {
 
   const wrapper = document.createElement('div');
   wrapper.classList.add('section-one-wrapper');
-  wrapper.append(footer)
+  wrapper.append(footer);
 
   block.append(wrapper);
 
@@ -37,24 +37,22 @@ export default async function decorate(block) {
   const secondfooter = parentDiv.querySelectorAll('.section-two');
   const newContainer = document.createElement('div');
   newContainer.classList.add('footer-section-two');
-  secondfooter.forEach(element => {
+  secondfooter.forEach((element) => {
     newContainer.append(element);
   });
-   document.body.appendChild(newContainer);
-   const targetDiv = document.querySelector('.footer');
-   targetDiv.appendChild(newContainer);
- 
- 
-   // Social media links
-   const links = document.querySelectorAll('.social-media-links p');
-   const linksWrapper = document.createElement('div');
-   links.forEach(element => {
-     linksWrapper.append(element);
-   });
-   linksWrapper.classList.add("social-media-wrapper");
-   const socialMediaContainer = document.querySelector('.social-media-links div');
-   socialMediaContainer.classList.add("nissan-on-social-media");
-   const targetElement = document.querySelector('.nissan-on-social-media');
-   targetElement.insertAdjacentElement('afterend', linksWrapper); 
- 
+  document.body.appendChild(newContainer);
+  const targetDiv = document.querySelector('.footer');
+  targetDiv.appendChild(newContainer);
+
+  // Social media links
+  const links = document.querySelectorAll('.social-media-links p');
+  const linksWrapper = document.createElement('div');
+  links.forEach((element) => {
+    linksWrapper.append(element);
+  });
+  linksWrapper.classList.add('social-media-wrapper');
+  const socialMediaContainer = document.querySelector('.social-media-links div');
+  socialMediaContainer.classList.add('nissan-on-social-media');
+  const targetElement = document.querySelector('.nissan-on-social-media');
+  targetElement.insertAdjacentElement('afterend', linksWrapper);
 }
