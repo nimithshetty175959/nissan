@@ -143,4 +143,6 @@ const getCarouselNav = (block) => {
   return bannerNavConrainer;
 };
 
-export { createBanerItem, createElement, getCarouselNav };
+export {
+  createBanerItem, createElement, getCarouselNav, elementHasClass, addClassesToElements,
+};

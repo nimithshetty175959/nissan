@@ -4,7 +4,7 @@ main .banner-wrapper {
     margin: 0 !important;
     max-width: 100% !important;
 }
-.banner-wrapper .banner {
+.banner-wrapper .banner.banner-block {
     height: 100vh;
     position: relative;
     overflow: hidden;
