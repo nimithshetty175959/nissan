@@ -2,7 +2,7 @@ import { createBanerItem, getCarouselNav } from './bannerHelper.js';
 
 export default function decorate(block) {
   console.log(block);
-  console.log(window);
+  console.log(window.document.getElementsByTagName('html'));
   const copyBlock = block.cloneNode(true);
   const copyBlockNav = block.cloneNode(true);
   const elements = copyBlock.children;
