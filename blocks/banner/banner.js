@@ -10,6 +10,6 @@ export default function decorate(block) {
     const bannerItem = createBanerItem(element, index);
     block.append(bannerItem);
   }
-  const carNav = getCarouselNav(copyBlockNav);
-  block.append(carNav);
+  const carNavigation = getCarouselNav(copyBlockNav);
+  block.append(carNavigation);
 }
