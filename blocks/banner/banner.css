@@ -62,7 +62,7 @@ main .banner-wrapper {
 }
 .nav-image-blocks {
     display: flex;
-    box-shadow: -1px 3px 17px 4px black;
+    box-shadow: 0 3px 17px 4px black;
 }
 .nav-image-blocks .nav-image-block {
     display: grid;
