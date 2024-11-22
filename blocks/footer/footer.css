@@ -1,13 +1,16 @@
 footer {
-  background-color: var(--footer-bg-color);
+  background-color: var(--footer-bg-light-color);
   font-size: var(--body-font-size-xs);
   color: white
 }
 
-footer .footer > div {
+.footer-section-one,.footer-section-two {
   margin: auto;
   max-width: 1200px;
   padding: 24px;
+}
+footer .footer .section-one-wrapper{
+  background-color: var(--footer-bg-color);
 }
 
 footer .footer p {

@@ -18,6 +18,7 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   const wrapper = document.createElement('div');
+  wrapper.classList.add('section-one-wrapper');
   wrapper.append(footer)
 
   block.append(wrapper);

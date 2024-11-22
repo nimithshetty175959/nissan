@@ -18,7 +18,8 @@
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
-  --footer-bg-color: #1a1a1a;
+  --footer-bg-light-color: #1a1a1a;
+  --footer-bg-color: #000;
   --footer-link-color: #c1c1c1;
 
   /* fonts */
