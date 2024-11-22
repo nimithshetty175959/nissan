@@ -5,9 +5,14 @@ import {
   getCarouselNav,
 } from './bannerHelper.js';
 
+let cloneBlock = null;
+
 export default function decorate(block) {
   const htmlElem = window.document.getElementsByTagName('html');
-  const cloneBlock = block.cloneNode(true);
+  if (cloneBlock === null) {
+    cloneBlock = block.cloneNode(true);
+  }
+
   if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
     const copyBlock = block.cloneNode(true);
     const copyBlockNav = block.cloneNode(true);
@@ -26,7 +31,9 @@ export default function decorate(block) {
     const banners = cloneBlock.children;
     for (let index = 0; index < banners.length; index += 1) {
       const banner = banners[index];
-      block.append(banner);
+      setTimeout(() => {
+        block.append(banner);
+      }, index);
     }
   }
 }
