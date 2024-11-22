@@ -7,7 +7,7 @@ import {
 
 export default function decorate(block) {
   const htmlElem = window.document.getElementsByTagName('html');
-  console.log(htmlElem[0].classList);
+  const cloneBlock = block.cloneNode(true);
   if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
     const copyBlock = block.cloneNode(true);
     const copyBlockNav = block.cloneNode(true);
@@ -21,5 +21,8 @@ export default function decorate(block) {
     }
     const carNavigation = getCarouselNav(copyBlockNav);
     block.append(carNavigation);
+  } else {
+    block.innerHTML = '';
+    block.append(cloneBlock.children[0]);
   }
 }
