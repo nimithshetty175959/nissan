@@ -7,7 +7,7 @@ import {
 
 export default function decorate(block) {
   const htmlElem = window.document.getElementsByTagName('html');
-  if (!elementHasClass(htmlElem, 'adobe-ue-edit')) {
+  if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
     const copyBlock = block.cloneNode(true);
     const copyBlockNav = block.cloneNode(true);
     const elements = copyBlock.children;
