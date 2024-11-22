@@ -266,3 +266,15 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+.nav-wrapper  nav .nav-sections{
+  text-align: right;
+}
+.nav-wrapper  nav .nav-sections .default-content-wrapper {
+  display: inline-flex;
+  gap: 20px;
+}
+.nav-wrapper  nav .nav-brand .icon-nissan-logo{
+  position: relative;
+  top: 3em;
+}
