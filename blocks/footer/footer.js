@@ -17,7 +17,10 @@ export default async function decorate(block) {
   footer.classList.add('footer-section-one');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
-  block.append(footer);
+  const wrapper = document.createElement('div');
+  wrapper.append(footer)
+
+  block.append(wrapper);
 
   const parentDiv = document.querySelector('.footer-section-one');
   let childDivs;
