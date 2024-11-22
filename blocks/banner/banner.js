@@ -23,6 +23,10 @@ export default function decorate(block) {
     block.append(carNavigation);
   } else {
     block.innerHTML = '';
-    block.append(cloneBlock.children);
+    const banners = cloneBlock.children;
+    for (let index = 0; index < banners.length; index += 1) {
+      const banner = banners[index];
+      block.append(banner);
+    }
   }
 }
