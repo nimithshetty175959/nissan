@@ -51,6 +51,48 @@ const getThumbnailImages = (block) => {
   return thumbnailImages;
 };
 
+const imageAnimate = (block) => {
+  const imageMain = block.querySelector(
+    '.banner-container.active .image-block img',
+  );
+  const imageElements = block.querySelectorAll(
+    '.banner-container .image-block img',
+  );
+  const heads = block.querySelectorAll('.banner .data-wrapper .data-block h3');
+  const imageSrc = imageMain.src;
+  const animBlocks = block.querySelectorAll('.banner-img-anim-block');
+  for (let index = 0; index < animBlocks.length; index += 1) {
+    const element = animBlocks[index];
+    const imageHolder = element.querySelector('.image-holder');
+    imageHolder.style.backgroundImage = `url(${imageSrc})`;
+    imageHolder.style.width = `${imageMain.width}px`;
+    element.style.width = '100%';
+    removeClassesFromElements([element], ['animate']);
+    setTimeout(() => {
+      addClassesToElements([element], ['animate']);
+      element.style.width = '0';
+    }, 0);
+  }
+  for (let index = 0; index < imageElements.length; index += 1) {
+    const image = imageElements[index];
+    addClassesToElements([image], ['animate']);
+    setTimeout(() => {
+      removeClassesFromElements([image], ['animate']);
+    }, 700);
+  }
+  for (let index = 0; index < heads.length; index += 1) {
+    const head = heads[index];
+    setTimeout(() => {
+      head.style.right = '1em';
+      head.style.opacity = '0';
+      setTimeout(() => {
+        head.style.right = '0';
+        head.style.opacity = '1';
+      }, 500);
+    }, 0);
+  }
+};
+
 /**
  *
  * @param {*} element
@@ -62,6 +104,9 @@ const createBanerItem = (element, index) => {
     'banner-container',
     `nav-image-block-${index}`,
   ]);
+  const bannerOverlayBlock = createElement('div', ['banner-overlay-block']);
+  const bannerDataBlock = createElement('div', ['banner-data-block']);
+  const bannerImageAnimation = createElement('div', ['banner-img-anim-block']);
   if (index === 0) {
     addClassesToElements([bannerContainer], ['active']);
   }
@@ -84,17 +129,31 @@ const createBanerItem = (element, index) => {
       dataBlock.append(elementCopy);
     }
   }
+
+  const image = createElement('div', ['image-holder']);
+
+  image.style.backgroundImage = '';
+  image.style.width = `${window.screen.width}px`;
+  bannerImageAnimation.append(image);
   imagesBlock.append(imageElements[0]);
-  bannerContainer.append(imagesBlock);
+  bannerDataBlock.append(imagesBlock);
+
+  bannerDataBlock.append(bannerImageAnimation);
+
   dataWrapper.append(dataBlock);
   dataWrapper.append(buttonBlock);
-  bannerContainer.append(dataWrapper);
+
+  bannerDataBlock.append(dataWrapper);
+  bannerContainer.append(bannerOverlayBlock);
+  bannerContainer.append(bannerDataBlock);
+
   return bannerContainer;
 };
 
 const getCarouselNav = (block) => {
   const bannerNavConrainer = createElement('div', ['banner-nav-container']);
   const navTabs = createElement('div', ['nav-tabs']);
+  const navSlideConatiner = createElement('div', ['nav-silde-container']);
   const navImgBlocks = createElement('div', ['nav-image-blocks']);
   const activeClass = 'active';
   ['HYBRID', '100% ELECTRIC', 'ESSENCE'].forEach((value, i) => {
@@ -106,9 +165,12 @@ const getCarouselNav = (block) => {
     navTabs.append(navTab);
   });
   const thumnailImages = getThumbnailImages(block);
+  navImgBlocks.style.width = `${153 * thumnailImages.length}px`;
+  navImgBlocks.style.left = 0;
   thumnailImages.forEach((image, i) => {
     const imageItem = createElement('div', ['nav-image-block']);
     imageItem.setAttribute('data-block', `nav-image-block-${i}`);
+    imageItem.setAttribute('data-count', i);
     if (i === 0) {
       imageItem.classList.add(activeClass);
     }
@@ -119,10 +181,10 @@ const getCarouselNav = (block) => {
           '.nav-image-blocks .nav-image-block',
         );
         const dataBlock = imageItem.getAttribute('data-block');
+        const parentBlock = bannerNavConrainer.parentElement;
+        imageAnimate(parentBlock);
         removeClassesFromElements(navElements, ['active']);
         addClassesToElements([imageItem], ['active']);
-
-        const parentBlock = bannerNavConrainer.parentElement;
 
         const bannerBlocks = parentBlock.querySelectorAll(
           '.banner .banner-container',
@@ -133,16 +195,25 @@ const getCarouselNav = (block) => {
 
         removeClassesFromElements(bannerBlocks, ['active']);
         addClassesToElements([bannerBlock], ['active']);
+        setTimeout(() => {
+          const dataCount = imageItem.getAttribute('data-count');
+          navImgBlocks.style.left = `-${153 * Number(dataCount)}px`;
+        }, 10);
       }
     });
     imageItem.append(image);
     navImgBlocks.append(imageItem);
   });
   bannerNavConrainer.append(navTabs);
-  bannerNavConrainer.append(navImgBlocks);
+  navSlideConatiner.append(navImgBlocks);
+  bannerNavConrainer.append(navSlideConatiner);
   return bannerNavConrainer;
 };
 
 export {
-  createBanerItem, createElement, getCarouselNav, elementHasClass, addClassesToElements,
+  createBanerItem,
+  createElement,
+  getCarouselNav,
+  elementHasClass,
+  addClassesToElements,
 };

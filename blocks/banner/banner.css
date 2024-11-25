@@ -12,6 +12,7 @@ main .banner-wrapper {
 }
 .banner .banner-container {
     display: none;
+    position: relative;
 }
 .banner .banner-container.active {
     display: block;
@@ -20,6 +21,7 @@ main .banner-wrapper {
     position: absolute;
     right: 4em;
     bottom: 4em;
+    z-index: 10;
 }
 .banner .data-wrapper .data-block {
     margin-bottom: 30px;
@@ -29,6 +31,8 @@ main .banner-wrapper {
 .banner .data-wrapper .data-block h3 {
     font-size: 30px;
     margin: 0 0 25px 0;
+    position: relative;
+    transition: 0.5s;
 }
 .banner .data-wrapper .data-block h4 {
     font-size: 15px;
@@ -63,6 +67,8 @@ main .banner-wrapper {
 .nav-image-blocks {
     display: flex;
     box-shadow: 0 3px 17px 4px black;
+    position: relative;
+    transition: 1s;
 }
 .nav-image-blocks .nav-image-block {
     display: grid;
@@ -70,20 +76,21 @@ main .banner-wrapper {
     border: 3px solid transparent;
     background-color: black;
     align-items: center;
+    width: 153px;
+    box-sizing: border-box;
+    height: 88px;
 }
 .nav-image-blocks .nav-image-block.active {
     border: 3px solid #fff;
-}
-.nav-image-blocks .nav-image-block .image-item {
-    width: 150px;
 }
 .nav-image-blocks .nav-image-block .image-item img {
     display: flex;
 }
 .banner .data-wrapper {
     position: absolute;
-    bottom: 4em;
+    bottom: 12em;
     left: 5em;
+    z-index: 1;
 }
 .banner .button-block {
     display: flex;
@@ -109,4 +116,49 @@ main .banner-wrapper {
 .banner .button-block .button-item:nth-child(2) .button-container a {
     background-color: #0000006e;
     color: #fff;
+}
+
+.banner-overlay-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #00000070;
+    z-index: 1;
+}
+.banner-data-block {
+    z-index: 3;
+    position: relative;
+}
+.banner-img-anim-block {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+.banner-img-anim-block.animate {
+    transition: 1s;
+    width: 0 !important;
+}
+.banner-img-anim-block .image-holder {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scale(1.1);
+}
+.banner-container.active .image-block img {
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.banner-container.active .image-block img.animate {
+    transform: scale(1);
+}
+
+.nav-silde-container{
+    width: 459px;
+    overflow: hidden;
 }

@@ -7,6 +7,16 @@ import {
 
 let cloneBlock = null;
 
+const navTabClick = (block) => {
+  const navTab = block.querySelector('.nav-tabs .nav-tab.active');
+  navTab.addEventListener('click', () => {
+    const navBlocks = block.querySelectorAll(
+      '.nav-image-blocks .nav-image-block',
+    );
+    navBlocks[0].click();
+  });
+};
+
 export default function decorate(block) {
   const htmlElem = window.document.getElementsByTagName('html');
   if (cloneBlock === null) {
@@ -26,6 +36,7 @@ export default function decorate(block) {
     }
     const carNavigation = getCarouselNav(copyBlockNav);
     block.append(carNavigation);
+    navTabClick(block);
   } else {
     block.innerHTML = '';
     const banners = cloneBlock.children;
