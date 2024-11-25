@@ -55,4 +55,21 @@ export default async function decorate(block) {
   socialMediaContainer.classList.add('nissan-on-social-media');
   const targetElement = document.querySelector('.nissan-on-social-media');
   targetElement.insertAdjacentElement('afterend', linksWrapper);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+let sections = gsap.utils.toArray(".section");
+
+gsap.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".footer-section-one",
+    pin: true,
+    scrub: 1,
+    snap: 1 / (sections.length - 1),
+    end: () => "+=" + document.querySelector(".footer-section-one").offsetWidth
+  }
+});
+
 }
