@@ -205,18 +205,6 @@
      ]
   },
   {
-    "id": "vehicles",
-    "fields": [
-       {
-         "component": "richtext",
-         "name": "text",
-         "value": "",
-         "label": "Text",
-         "valueType": "string"
-       }
-     ]
-  },
-  {
     "id": "slides",
     "fields": [
       {
