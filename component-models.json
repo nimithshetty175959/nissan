@@ -327,6 +327,11 @@
         "component": "text",
         "name": "primarylinkText",
         "label": "Primary Link Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "apilink",
+        "label": "API Link"
       }
      ]
   }
