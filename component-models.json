@@ -205,6 +205,18 @@
      ]
   },
   {
+    "id": "vehicles",
+    "fields": [
+       {
+         "component": "richtext",
+         "name": "text",
+         "value": "",
+         "label": "Text",
+         "valueType": "string"
+       }
+     ]
+  },
+  {
     "id": "slides",
     "fields": [
       {
@@ -257,6 +269,40 @@
         "name": "thumbnailimage",
         "label": "Thumbnail Image",
         "multi": true
+      }
+    ]
+  },
+  {
+    "id": "cars",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": true
+      },
+      {
+        "component": "richtext",
+        "name": "bannertext",
+        "value": "",
+        "label": "Banner Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "primarylink",
+        "label": "Primary Link"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkText",
+        "label": "Primary Link Text"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkTitle",
+        "label": "Primary Link Title"
       }
     ]
   }

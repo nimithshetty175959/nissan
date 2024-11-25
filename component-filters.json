@@ -18,13 +18,20 @@
       "fragment",
       "quote",
       "tab",
-      "banner"
+      "banner",
+      "vehicles"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "vehicles",
+    "components": [
+      "cars"
     ]
   },
   {
