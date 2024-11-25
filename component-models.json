@@ -293,5 +293,41 @@
         "label": "Primary Link Title"
       }
     ]
+  },
+  {
+    "id": "vehiclelist",
+    "fields": [
+       {
+         "component": "text",
+         "valueType": "string",
+         "name": "header",
+         "label": "Header",
+         "value": ""
+       },
+       {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtext",
+        "label": "Subtext",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": true
+      },
+      {
+        "component": "aem-content",
+        "name": "primarylink",
+        "label": "Primary Link"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkText",
+        "label": "Primary Link Text"
+      }
+     ]
   }
 ]
