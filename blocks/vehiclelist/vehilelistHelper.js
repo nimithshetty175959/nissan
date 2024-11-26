@@ -31,10 +31,15 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
 
   tl.fromTo(
     vehicleOverlay,
+    { backdropFilter: 'blur(0px)', webkitBackdropFilter: 'blur(0px)' },
+    { backdropFilter: 'blur(100px)', webkitBackdropFilter: 'blur(100px)' },
+  );
+
+  t2.fromTo(
+    vehicleBGI,
     { width: '100%', left: '0' },
     { width: '103%', left: '-3%' },
   );
-  t2.fromTo(vehicleBGI, { transform: 'scale(1)' }, { transform: 'scale(1.2)' });
 };
 
 const getAnimCircles = () => {
