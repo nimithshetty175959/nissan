@@ -20,13 +20,21 @@
       "tab",
       "banner",
       "vehicles",
-      "vehiclelist"
+      "vehiclelist",
+      "nissancards"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "nissancards",
+    "components": [
+      "nissancard",
+      "text"
     ]
   },
   {

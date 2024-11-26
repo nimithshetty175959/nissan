@@ -263,6 +263,36 @@
               }
             }
           }
+        },
+        {
+          "title": "NissanCards",
+          "id": "nissancards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "NissanCards",
+                  "filter": "nissancards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "NissanCard",
+          "id": "nissancard",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "NissanCard",
+                  "model": "nissancard"
+                }
+              }
+            }
+          }
         }
       ]
     }
