@@ -358,5 +358,32 @@
         "label": "Card Link"
       }
     ]
+  },
+  {
+    "id": "newscard",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "date",
+        "label": "Date"
+      },
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "cardlink",
+        "label": "Card Link"
+      }
+    ]
   }
 ]
