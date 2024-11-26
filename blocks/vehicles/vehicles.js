@@ -8,6 +8,7 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
     const parentDiv = document.querySelector('.vehicles');
     let childDivs;
+    
     if (parentDiv) {
         childDivs = parentDiv.querySelectorAll('div');
         console.log(childDivs);
@@ -16,6 +17,7 @@ export default async function decorate(block) {
             console.log("child", child);
             child.classList.add('offer-sec');
         });
+        
     }
     // gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +34,7 @@ export default async function decorate(block) {
     //     end: () => "+=" + document.querySelector(".vehicles").offsetWidth
     //   }
     // });
+    
 
 }
 

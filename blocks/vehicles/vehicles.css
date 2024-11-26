@@ -1,3 +1,109 @@
-.vehicles{
+.vehicles-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .vehicles {
     display: flex;
-}
+    gap: 20px;
+    padding: 40px 0;
+  }
+  
+  .offer-sec {
+    min-width: 100%;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 8px;
+  }
+  
+  /* First promotional offer - Pink background */
+  .offer-sec:nth-child(2) {
+    background-color: #FFE4E4;
+  }
+  
+  /* Second promotional offer - Light yellow background */
+  .offer-sec:nth-child(3) {
+    background-color: #FFF8E7;
+  }
+  
+  /* Image styling */
+  .offer-sec picture {
+    display: block;
+    width: 100%;
+  }
+  
+  .offer-sec img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Text content styling */
+  .offer-sec h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .offer-sec p:first-of-type {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .offer-sec p:nth-of-type(2) {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .offer-sec p:last-of-type {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Button styling */
+  .button-container {
+    text-align: right;
+  }
+  
+  .button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .button:hover {
+    background-color: #333;
+  }
+  
+  /* Title section styling */
+  .offer-sec:first-child {
+    text-align: center;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .offer-sec {
+      padding: 20px;
+    }
+    
+    .offer-sec h2 {
+      font-size: 2rem;
+    }
+    
+    .offer-sec p:first-of-type {
+      font-size: 1.5rem;
+    }
+  }
