@@ -186,21 +186,19 @@
     ]
   },
   {
-    "id": "quote",
+    "id": "news",
     "fields": [
-       {
-         "component": "richtext",
-         "name": "quote",
-         "value": "",
-         "label": "Quote",
-         "valueType": "string"
-       },
        {
          "component": "text",
          "valueType": "string",
-         "name": "author",
-         "label": "Author",
+         "name": "header",
+         "label": "Header",
          "value": ""
+       },
+       {
+         "component": "aem-content",
+         "name": "apilink",
+         "label": "API Link"
        }
      ]
   },
