@@ -34,7 +34,7 @@ export default async function decorate(block) {
             end: "max",
             pin: true,
             pinSpacing: false,
-            markers: true // Optional: Remove this in production
+           
         });
 
         // Horizontal scroll animation for the other slides
@@ -44,7 +44,7 @@ export default async function decorate(block) {
                 start: "top top",
                 end: "+=" + (marginValue + innerHeight * 0.5),
                 scrub: true,
-                markers: true // Optional: Remove this in production
+            
             }
         });
 
@@ -63,7 +63,7 @@ export default async function decorate(block) {
                 start: "top top", // Start as soon as the first slide is in view
                 end: "+=" + (marginValue + innerHeight * 0.5), // End when the scroll is finished
                 scrub: true, // Smooth scroll-based animation
-                markers: true, // Optional: Shows the markers for debugging
+              
                 onUpdate: (self) => {
                     // Optional: You can log the progress to see how it behaves
                     console.log(self.progress); 
@@ -83,7 +83,7 @@ export default async function decorate(block) {
                     end: "left 75%",
                     containerAnimation: tl,
                     scrub: true,
-                    markers: { startColor: "red", endColor: "red" } // Optional: for debugging
+                   
                 }
             });
         }
