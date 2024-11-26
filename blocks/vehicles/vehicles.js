@@ -13,27 +13,25 @@ export default async function decorate(block) {
         childDivs = parentDiv.querySelectorAll('div');
         console.log(childDivs);
         Array.from(parentDiv.children).forEach(child => {
-            // Step 3: Append each immediate child to the wrapper
-            console.log("child", child);
             child.classList.add('offer-sec');
         });
         
     }
-    // gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-    // let sections = gsap.utils.toArray(".offer-sec");
+    let sections = gsap.utils.toArray(".offer-sec");
 
-    // gsap.to(sections, {
-    //   xPercent: -100 * (sections.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".vehicles",
-    //     pin: true,
-    //     scrub: 1,
-    //     snap: 1 / (sections.length - 1),
-    //     end: () => "+=" + document.querySelector(".vehicles").offsetWidth
-    //   }
-    // });
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".vehicles",
+        pin: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        end: () => "+=" + document.querySelector(".vehicles").offsetWidth
+      }
+    });
     
 
 }
