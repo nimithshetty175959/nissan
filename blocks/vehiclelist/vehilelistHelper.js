@@ -12,7 +12,7 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
       scrub: 1,
       trigger: vehicleOverlay,
       endTrigger: vehicleContainer,
-      start: '100vh+=400px',
+      start: '100vh+=700px',
       end: 'bottom bottom',
       ease: 'power2.inOut',
     },
