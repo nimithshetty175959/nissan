@@ -364,8 +364,23 @@
     "fields": [
       {
         "component": "text",
-        "name": "date",
-        "label": "Date"
+        "name": "text",
+        "label": "Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "newslink",
+        "label": "Nissan News API Link"
+      }
+    ]
+  },
+  {
+    "id": "nissannews",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Text"
       },
       {
         "component": "aem-content",
