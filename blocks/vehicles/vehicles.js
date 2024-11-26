@@ -6,20 +6,33 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} block 
  */
 export default async function decorate(block) {
-    block.innerHTML = ''; // clear any existing content
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('promotional-offer');
-    block.append(wrapper);
-
-    const parentDiv = document.querySelector('.vehicles-wrapper');
-
-    // Clone the element to avoid circular reference
-    if (parentDiv) {
-        const clonedDiv = parentDiv.cloneNode(true);
-        wrapper.append(clonedDiv);
-    } else {
-        console.warn('No element with the class "vehicles-wrapper" found.');
-    }
-  
+    const parentDiv = document.querySelector('.vehicles');
+    let childDivs;
     
+    if (parentDiv) {
+        childDivs = parentDiv.querySelectorAll('div');
+        console.log(childDivs);
+        Array.from(parentDiv.children).forEach(child => {
+            child.classList.add('offer-sec');
+        });
+        
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray(".offer-sec");
+
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".vehicles",
+        pin: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        end: () => "+=" + document.querySelector(".vehicles").offsetWidth
+      }
+    });
+    
+
 }
+

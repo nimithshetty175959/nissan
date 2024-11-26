@@ -1,36 +1,9 @@
-/**
- *
- * @param {*} type
- * @param {*} classes
- * @returns
- */
-const createElement = (type = 'div', classes = []) => {
-  const element = document.createElement(type);
-  classes.forEach((c) => {
-    element.classList.add(c);
-  });
-  return element;
-};
-
-const elementHasClass = (elem, classname) => elem.classList.contains(classname);
-
-const removeClassesFromElements = (elements, classes) => {
-  for (let i = 0; i < elements.length; i += 1) {
-    const element = elements[i];
-    classes.forEach((cl) => {
-      element.classList.remove(cl);
-    });
-  }
-};
-
-const addClassesToElements = (elements, classes) => {
-  for (let i = 0; i < elements.length; i += 1) {
-    const element = elements[i];
-    classes.forEach((cl) => {
-      element.classList.add(cl);
-    });
-  }
-};
+import {
+  createElement,
+  removeClassesFromElements,
+  addClassesToElements,
+  elementHasClass,
+} from '../../scripts/dom.js';
 
 const getThumbnailImages = (block) => {
   const thumbnailImages = [];
@@ -210,10 +183,4 @@ const getCarouselNav = (block) => {
   return bannerNavConrainer;
 };
 
-export {
-  createBanerItem,
-  createElement,
-  getCarouselNav,
-  elementHasClass,
-  addClassesToElements,
-};
+export { createBanerItem, getCarouselNav };

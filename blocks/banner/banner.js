@@ -1,9 +1,5 @@
-import {
-  addClassesToElements,
-  createBanerItem,
-  elementHasClass,
-  getCarouselNav,
-} from './bannerHelper.js';
+import { addClassesToElements, elementHasClass } from '../../scripts/dom.js';
+import { createBanerItem, getCarouselNav } from './bannerHelper.js';
 
 let cloneBlock = null;
 
