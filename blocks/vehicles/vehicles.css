@@ -1,16 +1,20 @@
 .vehicles {
     display: flex;
-     flex-wrap: nowrap;
-     overflow: hidden;
-   }
-   
-   .offer-section {
-     flex: 1 0 100%;
-   }
-   .slide-0{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 68px;
-   font-weight: 400;
-   }
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.offer-section {
+    flex: 1 0 100%;
+}
+
+.slide-0 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.slide-0 h2 {
+    font-size: 68px;
+    font-weight: 400;
+}
