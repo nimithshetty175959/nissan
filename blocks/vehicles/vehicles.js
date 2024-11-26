@@ -7,25 +7,22 @@ import { loadFragment } from '../fragment/fragment.js';
  */
 export default async function decorate(block) {
     const parentDiv = document.querySelector('.vehicles');
-    let childDivs;
-
+    
     if (parentDiv) {
         Array.from(parentDiv.children).forEach((child, index) => {
             child.classList.add('offer-section', `slide-${index}`);
-
         });
     }
-
 
     gsap.registerPlugin(ScrollTrigger);
 
     const containers = gsap.utils.toArray(".vehicles");
-
+    
     containers.forEach((cont, i) => {
         const { innerHeight } = window;
         const slides = gsap.utils.toArray(".offer-section", cont); // Get all the slides
         const marginValue = innerHeight * slides.length; // Determine how much scroll space we need
-        const finalText = slides[0]?.querySelector("div");
+        const firstSlide = slides[0]; // First slide
 
         // Set the margin of the container to be long enough for the scroll
         gsap.set(cont, { marginBottom: marginValue });
@@ -58,7 +55,24 @@ export default async function decorate(block) {
             ease: "none"
         });
 
+        // Animate the blur effect on the first slide as you scroll
+        gsap.to(firstSlide, {
+            filter: "blur(10px)", // Maximum blur
+            scrollTrigger: {
+                trigger: cont,
+                start: "top top", // Start as soon as the first slide is in view
+                end: "+=" + (marginValue + innerHeight * 0.5), // End when the scroll is finished
+                scrub: true, // Smooth scroll-based animation
+                markers: true, // Optional: Shows the markers for debugging
+                onUpdate: (self) => {
+                    // Optional: You can log the progress to see how it behaves
+                    console.log(self.progress); 
+                }
+            }
+        });
+
         // Optional: Apply a blur effect to finalText
+        const finalText = slides[2]?.querySelector("div");
         if (finalText) {
             gsap.to(finalText, {
                 filter: "blur(10px)",
