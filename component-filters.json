@@ -39,12 +39,6 @@
     ]
   },
   {
-    "id": "news",
-    "components": [
-      "newscard"
-    ]
-  },
-  {
     "id": "vehicles",
     "components": [
       "cars"
