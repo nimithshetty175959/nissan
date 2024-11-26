@@ -13,6 +13,7 @@ export default async function decorate(block) {
             child.classList.add('offer-section', `slide-${index}`);
         });
     }
+    
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -63,29 +64,9 @@ export default async function decorate(block) {
                 start: "top top", // Start as soon as the first slide is in view
                 end: "+=" + (marginValue + innerHeight * 0.5), // End when the scroll is finished
                 scrub: true, // Smooth scroll-based animation
-              
-                onUpdate: (self) => {
-                    // Optional: You can log the progress to see how it behaves
-                    console.log(self.progress); 
-                }
             }
         });
 
         // Optional: Apply a blur effect to finalText
-        const finalText = slides[2]?.querySelector("div");
-        if (finalText) {
-            gsap.to(finalText, {
-                filter: "blur(10px)",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: finalText,
-                    start: "left 70%",
-                    end: "left 75%",
-                    containerAnimation: tl,
-                    scrub: true,
-                   
-                }
-            });
-        }
     });
 }
