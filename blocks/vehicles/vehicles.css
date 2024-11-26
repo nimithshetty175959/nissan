@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
+    gap: 20px;
 }
 
 .offer-section {
@@ -14,7 +15,22 @@
     justify-content: center;
 
 }
+
 .slide-0 h2 {
     font-size: 68px;
     font-weight: 400;
+}
+
+
+.slide>div {
+    position: relative;
+}
+
+.offer-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding: 32px
 }

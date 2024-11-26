@@ -10,32 +10,58 @@ export default async function decorate(block) {
     
     if (parentDiv) {
         Array.from(parentDiv.children).forEach((child, index) => {
-            child.classList.add('offer-section', `slide-${index}`);
+            
+            if(index){
+                child.classList.add('offer-section', 'slide',`slide-${index}`);
+            } else{
+                child.classList.add('offer-section','offer-text',`slide-${index}`);
+            }
         });
+        
     }
-    
 
+     const offerSections = document.querySelectorAll('.offer-section');
+    const sections = Array.from(offerSections).slice(1);
+ 
+    sections.forEach((section) => {
+        // Find the picture container
+        const pictureContainer = section.querySelector('picture');
+
+        // Ensure the picture container exists
+        if (pictureContainer) {
+            // Find the richtext div and button-container div
+            const richTextDiv = section.querySelector('[data-aue-type="richtext"]');
+            const buttonContainerDiv = section.querySelector('.button-container');
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('offer-details');
+            wrapper.appendChild(richTextDiv);
+            wrapper.appendChild(buttonContainerDiv);
+            
+            pictureContainer.parentElement.appendChild(wrapper);
+    
+        } 
+    });
     gsap.registerPlugin(ScrollTrigger);
 
     const containers = gsap.utils.toArray(".vehicles");
-    
-    containers.forEach((cont, i) => {
+
+    containers.forEach((cont) => {
         const { innerHeight } = window;
         const slides = gsap.utils.toArray(".offer-section", cont); // Get all the slides
-        const marginValue = innerHeight * slides.length; // Determine how much scroll space we need
+        const marginValue = innerHeight * slides.length-1; // Determine how much scroll space we need
+        const additionalSpace = innerHeight * 0.05; // Reduced space below the container
         const firstSlide = slides[0]; // First slide
 
         // Set the margin of the container to be long enough for the scroll
-        gsap.set(cont, { marginBottom: marginValue });
+        gsap.set(cont, { marginBottom: marginValue + additionalSpace });
 
         // Pin the first slide and keep it in place
         ScrollTrigger.create({
             trigger: cont,
             start: "top top",
-            end: "max",
+            end: "+=" + (marginValue + additionalSpace),
             pin: true,
             pinSpacing: false,
-           
         });
 
         // Horizontal scroll animation for the other slides
@@ -43,30 +69,34 @@ export default async function decorate(block) {
             scrollTrigger: {
                 trigger: cont,
                 start: "top top",
-                end: "+=" + (marginValue + innerHeight * 0.5),
+                end: "+=" + (marginValue + additionalSpace),
                 scrub: true,
-            
-            }
+            },
         });
 
-        // Animate the horizontal scroll of the slides (except the first one)
+        // Animate the horizontal scroll of the slides
         tl.to(slides.slice(1), {
-            xPercent: -(100 * (slides.length - 1)), // Move remaining slides horizontally
+            xPercent: -(125 * (slides.length - 1)), // Move remaining slides horizontally
             duration: slides.length,
-            ease: "none"
+            ease: "none",
         });
 
-        // Animate the blur effect on the first slide as you scroll
+        // Animate the vertical scroll of the entire container
+        tl.to(cont, {
+            yPercent: -100, // Move the container upwards
+            duration: 1,
+            ease: "none",
+        });
+
+        // Animate the blur effect on the first slide
         gsap.to(firstSlide, {
-            filter: "blur(10px)", // Maximum blur
+            filter: "blur(50px)", // Maximum blur
             scrollTrigger: {
                 trigger: cont,
-                start: "top top", // Start as soon as the first slide is in view
-                end: "+=" + (marginValue + innerHeight * 0.5), // End when the scroll is finished
-                scrub: true, // Smooth scroll-based animation
-            }
+                start: "top top",
+                end: "+=" + (marginValue + additionalSpace), // End when the scroll is finished
+                scrub: true,
+            },
         });
-
-        // Optional: Apply a blur effect to finalText
     });
 }
