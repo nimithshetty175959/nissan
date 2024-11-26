@@ -21,9 +21,7 @@
       "banner",
       "vehicles",
       "vehiclelist",
-      "nissancards",
-      "news",
-      "nissannews"
+      "nissancards"
     ]
   },
   {
@@ -35,8 +33,7 @@
   {
     "id": "nissancards",
     "components": [
-      "nissancard",
-      "text"
+      "nissancard"
     ]
   },
   {
