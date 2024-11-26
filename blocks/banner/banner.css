@@ -1,4 +1,7 @@
 /* stylelint-disable no-empty-source */
+.section.banner-container {
+    margin-bottom: 0;
+}
 main .banner-wrapper {
     padding: 0 !important;
     margin: 0 !important;

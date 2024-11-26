@@ -1,0 +1,177 @@
+@keyframes sonar {
+    0% {
+      transform: scale(0);
+      opacity: 0.8;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .vehiclelist-container {
+    margin: 0 !important;
+  }
+  .vehiclelist-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100%;
+  }
+  .vehicle-list-container {
+    height: calc(100vh + 320px);
+    position: relative;
+    overflow: hidden;
+    min-height: 580px;
+  }
+  .vehicle-bg-image {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .vehicle-list-container .vehicle-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(100px);
+    background-color: rgb(0 0 0 / 50%);
+  }
+  .vehicle-data-container {
+    position: absolute;
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    bottom: 12em;
+    width: 560px;
+    left: 0;
+    right: 0;
+  }
+  .vehicle-data-container .vehiclelist-head {
+    font-weight: 400;
+    font-size: 42px;
+    letter-spacing: 1.5px;
+    line-height: 52px;
+    margin-bottom: 30px;
+  }
+  .vehicle-data-container .vehiclelist-subtext {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.9px;
+    line-height: 26px;
+    position: relative;
+    padding-left: 30px;
+  }
+  .vehicle-data-input {
+    display: flex;
+    margin-top: 10px;
+    gap: 2em;
+  }
+  .vehicle-data-input .vehicle-dynamic-input {
+    flex: 1;
+    display: grid;
+    align-items: center;
+  }
+  .vehicle-data-input .vehicle-submit {
+    flex: 1;
+  }
+  .vehicle-data-input .vehicle-submit .button-container a {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    display: grid;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 3px solid #fff;
+    margin: 0;
+    background-color: transparent;
+  }
+  .anim-circle-b {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 6em;
+  }
+  .anim-circle-b .anim-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 228, 64);
+    border-radius: 50%;
+    opacity: 0;
+    animation: 4s ease-in-out 0s infinite normal none running sonar;
+  }
+  .anim-circle-b .circle:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .anim-circle-b .circle:nth-child(2) {
+    animation-delay: 1s;
+  }
+  .anim-circle-b .circle:nth-child(3) {
+    animation-delay: 2s;
+  }
+  .anim-circle-b .circle:nth-child(4) {
+    animation-delay: 3s;
+  }
+  .anim-circle-b .circle:nth-child(5) {
+    animation-delay: 4s;
+  }
+  
+  .v-custom-select {
+    position: relative;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .v-select-trigger {
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+    padding: 8px 2px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 24px;
+  }
+  
+  .v-select-options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 10;
+    color: #000;
+    text-align: left;
+    box-sizing: border-box;
+    top: 40px;
+  }
+  
+  .v-select-options .v-option {
+    padding: 3px 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 24px;
+  }
+  
+  .v-select-options .v-option:hover {
+    background-color: #f0f0f0;
+  }
+  .v-select-options .v-option.active {
+      background-color: #000;
+      color: #fff;
+  }
