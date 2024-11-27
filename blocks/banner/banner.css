@@ -154,7 +154,7 @@ main .banner-wrapper {
     transform: scale(1.1);
 }
 .banner-container.active .image-block img {
-    transition: 0.5s;
+    transition: 3s;
     transform: scale(1.1);
 }
 .banner-container.active .image-block img.animate {
