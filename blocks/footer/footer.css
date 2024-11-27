@@ -76,6 +76,7 @@ footer .footer .footer-section-one {
 .footer-section-two ul li,
 .footer-section-two p {
   padding: 24px 24px 24px 0;
+  font-family: var(--nissan-brand-light);
 }
 .footer-legal > div {
   display: flex;
