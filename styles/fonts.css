@@ -37,7 +37,7 @@
 
 
 @font-face {
-  font-family: nissanbrand;
+  font-family: nissanbrandBold;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -46,7 +46,7 @@
 }
 
 @font-face {
-  font-family: nissanbrand;
+  font-family: nissanbrandLight;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -55,7 +55,7 @@
 }
 
 @font-face {
-  font-family: nissanbrand;
+  font-family: nissanbrandRegular;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
