@@ -40,11 +40,13 @@ footer .footer .footer-section-one {
 .footer-section-one ul li {
   padding-bottom: 15px;
   font-size: 12px;
+  font-family: var(--nissan-brand-light);
 }
 
 .footer-section-one h3 {
   font-size: 15px;
   font-weight: 400;
+  font-family: var(--nissan-brand-bold);
   margin-bottom: 16px;
 }
 
