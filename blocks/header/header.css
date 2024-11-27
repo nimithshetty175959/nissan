@@ -5,7 +5,11 @@ header .nav-wrapper {
   position: absolute;
   background-color: transparent;
 }
-
+header .nav-wrapper nav {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
 header nav {
   box-sizing: border-box;
   display: grid;
