@@ -100,3 +100,9 @@
     color: black;
     /* Change the color to black */
 }
+
+
+a.button:any-link,
+button {
+    background-color: black;
+}
