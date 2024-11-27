@@ -24,7 +24,7 @@ main .banner-wrapper {
     position: absolute;
     right: 4em;
     bottom: 4em;
-    z-index: 10;
+    z-index: 5;
 }
 .banner .data-wrapper .data-block {
     margin-bottom: 30px;
