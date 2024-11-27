@@ -9,7 +9,6 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 20px; /* Spacing between slides */
-    overflow-x: auto; /* Horizontal scrolling */
     height: 100vh !important;
     align-items:center;
 }
