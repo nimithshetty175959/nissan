@@ -25,6 +25,9 @@
   /* fonts */
   --body-font-family: Nissan Brand Regular;
   --heading-font-family: Nissan Brand Regular;
+  --nissan-brand-regular: Nissan Brand Regular;
+  --nissan-brand-light: Nissan Brand Light;
+  --nissan-brand-bold: Nissan Brand Bold;
 
   /* body sizes */
   --body-font-size-m: 22px;
