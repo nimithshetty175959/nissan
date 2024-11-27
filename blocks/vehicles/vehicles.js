@@ -1,100 +1,106 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+import { getMetadata } from '../../scripts/aem.js'; // If unused, consider removing this line
+import { loadFragment } from '../fragment/fragment.js'; // If unused, consider removing this line
 
 /**
- * loads and decorates the promotional offer
- * @param {Element} block 
+ * Loads and decorates the promotional offer.
+ * @param {Element} block - The block element to decorate.
  */
 export default async function decorate(block) {
     const parentDiv = document.querySelector('.vehicles');
-    
+
+    // Add classes to child elements of the vehicles container
     if (parentDiv) {
         Array.from(parentDiv.children).forEach((child, index) => {
-            
-            if(index){
-                child.classList.add('offer-section', 'slide',`slide-${index}`);
-            } else{
-                child.classList.add('offer-section','offer-text',`slide-${index}`);
+            const classes = ['offer-section', `slide-${index}`];
+            if (index === 0) {
+                classes.push('offer-text');
+            } else {
+                classes.push('slide');
             }
+            child.classList.add(...classes);
         });
-        
     }
 
-     const offerSections = document.querySelectorAll('.offer-section');
-    const sections = Array.from(offerSections).slice(1);
- 
-    sections.forEach((section) => {
-        // Find the picture container
-        const pictureContainer = section.querySelector('picture');
+    const offerSections = Array.from(document.querySelectorAll('.offer-section')).slice(1);
 
-        // Ensure the picture container exists
-        if (pictureContainer) {
-            // Find the richtext div and button-container div
-            const richTextDiv = section.querySelector('[data-aue-type="richtext"]');
-            const buttonContainerDiv = section.querySelector('.button-container');
+    offerSections.forEach((section) => {
+        const pictureContainer = section.querySelector('picture');
+        if (!pictureContainer) {
+            console.error('No picture container found for offer section.');
+            return;
+        }
+
+        const richTextDiv = section.querySelector('[data-aue-type="richtext"]');
+        const buttonContainerDiv = section.querySelector('.button-container');
+
+        if (richTextDiv && buttonContainerDiv) {
             const wrapper = document.createElement('div');
             wrapper.classList.add('offer-details');
-            wrapper.appendChild(richTextDiv);
-            wrapper.appendChild(buttonContainerDiv);
-            
+            wrapper.append(richTextDiv, buttonContainerDiv);
             pictureContainer.parentElement.appendChild(wrapper);
-    
-        } 
+        } else {
+            console.warn('Missing richtext or button-container div in section.');
+        }
     });
+
+    // GSAP Animations
     gsap.registerPlugin(ScrollTrigger);
 
-    const containers = gsap.utils.toArray(".vehicles");
-
+    const containers = gsap.utils.toArray('.vehicles');
     containers.forEach((cont) => {
         const { innerHeight } = window;
-        const slides = gsap.utils.toArray(".offer-section", cont); // Get all the slides
-        const marginValue = innerHeight * slides.length-1; // Determine how much scroll space we need
-        const additionalSpace = innerHeight * 0.05; // Reduced space below the container
-        const firstSlide = slides[0]; // First slide
+        const slides = gsap.utils.toArray('.offer-section', cont);
+        const totalMargin = innerHeight * (slides.length - 3);
+        const additionalSpace = innerHeight * 0.05;
 
-        // Set the margin of the container to be long enough for the scroll
-        gsap.set(cont, { marginBottom: marginValue + additionalSpace });
+        // Remove or override max-height to prevent GSAP from limiting container height
+        gsap.set(cont, { maxHeight: "none" });
 
-        // Pin the first slide and keep it in place
+        // Adjust container margin for scroll space
+        // gsap.set(cont, { marginBottom: totalMargin + additionalSpace });
+    gsap.set(cont, { marginBottom: 800 });
+        // Pin the first slide
         ScrollTrigger.create({
             trigger: cont,
-            start: "top top",
-            end: "+=" + (marginValue + additionalSpace),
+            start: 'top top',
+            end: `+=${totalMargin + additionalSpace}`,
             pin: true,
             pinSpacing: false,
         });
 
-        // Horizontal scroll animation for the other slides
-        const tl = gsap.timeline({
+        // Horizontal scrolling for other slides
+        const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: cont,
-                start: "top top",
-                end: "+=" + (marginValue + additionalSpace),
+                start: 'top top',
+                end: `+=${totalMargin + additionalSpace}`,
                 scrub: true,
             },
         });
 
-        // Animate the horizontal scroll of the slides
-        tl.to(slides.slice(1), {
-            xPercent: -(125 * (slides.length - 1)), // Move remaining slides horizontally
-            duration: slides.length,
-            ease: "none",
+        // Move remaining slides horizontally
+        timeline.to(slides.slice(1), {
+            xPercent: -(150 * (slides.length - 1)),
+    duration: 5,
+    ease: "power0.easeInOut",
         });
 
-        // Animate the vertical scroll of the entire container
-        tl.to(cont, {
-            yPercent: -100, // Move the container upwards
+        // Vertical scroll for the container
+        timeline.to(cont, {
+            yPercent: -100,
             duration: 1,
-            ease: "none",
+            ease: 'linear'
         });
 
-        // Animate the blur effect on the first slide
-        gsap.to(firstSlide, {
-            filter: "blur(50px)", // Maximum blur
+        // Blur effect for the first slide
+        gsap.to(slides[0], {
+            filter: 'blur(50px)',  // Applies the blur effect
+            opacity: 0,
+             color: 'white',   
             scrollTrigger: {
                 trigger: cont,
-                start: "top top",
-                end: "+=" + (marginValue + additionalSpace), // End when the scroll is finished
+                start: 'top top',
+                end: `+=${totalMargin + additionalSpace}`,
                 scrub: true,
             },
         });

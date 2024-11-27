@@ -1,36 +1,98 @@
+/* General Styling */
+.vehicles-wrapper {
+    display: flex;
+    justify-content: center; /* Center the content */
+    overflow: hidden; /* Prevent overflow */
+}
+
 .vehicles {
     display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
-    gap: 20px;
+    gap: 20px; /* Spacing between slides */
+    overflow-x: auto; /* Horizontal scrolling */
+    height: 100vh !important;
+    align-items:center;
 }
 
-.offer-section {
-    flex: 1 0 100%;
-}
-
+/* Slide Styling */
 .slide-0 {
+    flex: 1 0 100%; /* Full width for the first slide */
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-.slide-0 h2 {
-    font-size: 68px;
-    font-weight: 400;
+.slide {
+    display: inline-block; /* Inline block for natural wrapping */
+    flex: 0 0 auto; /* Prevent grow/shrink */
+    width: auto; /* Adapt width to content */
 }
 
+.slide picture {
+    display: block; /* Ensure natural wrapping for images */
+}
 
-.slide>div {
+.slide > div {
     position: relative;
 }
 
+/* Offer Details Styling */
 .offer-details {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
-    padding: 32px
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.offer-details div[data-aue-prop="bannertext"] p:first-of-type {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.offer-details div[data-aue-prop="bannertext"] p:nth-of-type(2) {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.offer-details div[data-aue-prop="bannertext"] p:nth-of-type(3) {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: var(--background-color);
+    color: rgb(0, 0, 0);
+}
+
+/* Button Styling */
+.button-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Smooth hover transition */
+}
+
+.button:hover {
+    background-color: #444;
+}
+
+/* Header Styling */
+.slide-0 h2 {
+    font-size: 68px;
+    font-weight: 400;
+}
+
+[data-aue-type="richtext"] a:first-of-type {
+    color: black; /* Change the color to black */
 }
