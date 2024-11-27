@@ -170,11 +170,12 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  margin-bottom: 10px;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -302,7 +303,7 @@ header nav .nav-tools {
   z-index: 2;
 }
 .header-nav-menu .h-menu-icon.active {
-  left: 8px;
+  left: 0;
 }
 .header-nav-menu .h-menu-icon .h-menu-bar {
   position: absolute;
@@ -379,7 +380,7 @@ header nav .nav-tools {
 }
 .menu-list-level-1 h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 200;
 }
 .menu-list-level-1 .menu-list-level-2 {
@@ -401,10 +402,11 @@ header nav .nav-tools {
   display: block;
 }
 .menu-list-level-1 .menu-list-level-2 ul li {
-  font-size: 17px;
-  padding: 10px 0;
+  font-size: 15px;
+  padding-top: 10px;
   line-height: 1.3;
   text-decoration: none;
+  font-weight: 100;
 }
 .menu-list-level-1 ul li a:hover {
   text-decoration: none;
