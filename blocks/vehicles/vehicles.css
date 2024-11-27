@@ -1,37 +1,40 @@
 /* General Styling */
 .vehicles-wrapper {
-    display: flex;
-    justify-content: center; /* Center the content */
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100%;
 }
 
 .vehicles {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px; /* Spacing between slides */
+    gap: 20px;
     height: 100vh !important;
-    align-items:center;
+    align-items: center;
 }
 
 /* Slide Styling */
 .slide-0 {
-    flex: 1 0 100%; /* Full width for the first slide */
+    min-width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .slide {
-    display: inline-block; /* Inline block for natural wrapping */
-    flex: 0 0 auto; /* Prevent grow/shrink */
-    width: auto; /* Adapt width to content */
+    display: inline-block;
+    flex: 0 0 auto;
+    width: auto;
 }
 
 .slide picture {
-    display: block; /* Ensure natural wrapping for images */
+    display: block;
+    /* Ensure natural wrapping for images */
 }
 
-.slide > div {
+.slide>div {
     position: relative;
 }
 
@@ -79,7 +82,8 @@
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
-    transition: background-color 0.3s; /* Smooth hover transition */
+    transition: background-color 0.3s;
+    /* Smooth hover transition */
 }
 
 .button:hover {
@@ -93,5 +97,6 @@
 }
 
 [data-aue-type="richtext"] a:first-of-type {
-    color: black; /* Change the color to black */
+    color: black;
+    /* Change the color to black */
 }

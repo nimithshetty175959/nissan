@@ -50,15 +50,15 @@ export default async function decorate(block) {
     containers.forEach((cont) => {
         const { innerHeight } = window;
         const slides = gsap.utils.toArray('.offer-section', cont);
-        const totalMargin = innerHeight * (slides.length - 3);
-        const additionalSpace = innerHeight * 0.05;
+        const totalMargin = innerHeight * (slides.length - 2);
+        const additionalSpace = innerHeight * 2;
 
         // Remove or override max-height to prevent GSAP from limiting container height
         gsap.set(cont, { maxHeight: "none" });
 
         // Adjust container margin for scroll space
-        // gsap.set(cont, { marginBottom: totalMargin + additionalSpace });
-    gsap.set(cont, { marginBottom: 800 });
+        gsap.set(cont, { marginBottom: totalMargin + additionalSpace });
+
         // Pin the first slide
         ScrollTrigger.create({
             trigger: cont,
@@ -74,34 +74,27 @@ export default async function decorate(block) {
                 trigger: cont,
                 start: 'top top',
                 end: `+=${totalMargin + additionalSpace}`,
-                scrub: true,
+                scrub: 1, // Smooth out the animation
             },
         });
 
-        // Move remaining slides horizontally
+        // Move remaining slides horizontally with smooth easing
         timeline.to(slides.slice(1), {
-            xPercent: -(150 * (slides.length - 1)),
-    duration: 5,
-    ease: "power0.easeInOut",
+            xPercent: -(125 * (slides.length - 1)), // Adjusted to match natural flow
+            duration: 3,
+            ease: "power5.inOut", // Smooth easing curve
         });
 
-        // Vertical scroll for the container
-        timeline.to(cont, {
-            yPercent: -100,
-            duration: 1,
-            ease: 'linear'
-        });
-
-        // Blur effect for the first slide
+        // Blur effect and opacity transition for the first slide
         gsap.to(slides[0], {
-            filter: 'blur(50px)',  // Applies the blur effect
+            filter: 'blur(20px)', // Reduced blur intensity for smoothness
             opacity: 0,
-             color: 'white',   
+            ease: 'power5.inOut', // Smooth entry/exit for opacity
             scrollTrigger: {
                 trigger: cont,
                 start: 'top top',
                 end: `+=${totalMargin + additionalSpace}`,
-                scrub: true,
+                scrub: 1,
             },
         });
     });
