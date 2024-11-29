@@ -12,8 +12,8 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
       scrub: 1,
       trigger: vehicleOverlay,
       endTrigger: vehicleContainer,
-      start: '100vh+=700px',
-      end: 'bottom bottom',
+      start: 'top center-=300',
+      end: 'bottom center-=300',
       ease: 'power2.inOut',
     },
   });
@@ -23,8 +23,8 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
       scrub: 1,
       trigger: vehicleBGI,
       endTrigger: vehicleContainer,
-      start: '100vh+=100px',
-      end: 'bottom bottom',
+      start: 'top center-=200',
+      end: 'bottom center-=200',
       ease: 'power2.inOut',
     },
   });
