@@ -32,9 +32,17 @@ const addClassesToElements = (elements, classes) => {
   }
 };
 
+const onAnyElemntClick = (elements, callback) => {
+  for (let i = 0; i < elements.length; i += 1) {
+    const element = elements[i];
+    element.addEventListener('click', callback);
+  }
+};
+
 export {
   createElement,
   elementHasClass,
   addClassesToElements,
   removeClassesFromElements,
+  onAnyElemntClick,
 };

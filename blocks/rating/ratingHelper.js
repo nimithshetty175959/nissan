@@ -1,13 +1,25 @@
-import { addClassesToElements, createElement } from '../../scripts/dom.js';
+import {
+  addClassesToElements,
+  createElement,
+  onAnyElemntClick,
+} from '../../scripts/dom.js';
+
+const callFeedBackAPI = async (apiData) => {
+  const rawResponse = await fetch(apiData.api, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(apiData.data),
+  });
+  await rawResponse.json();
+};
 
 const createRatingInputComponent = () => {
   const ratingInputContainer = createElement('div', ['rating-input-container']);
   const ratingInputStars = createElement('div', ['rating-input-stars']);
   const ratingInputForm = createElement('form', ['input-stars-form']);
-
-  const inputWrap = createElement('div', ['input-name-wrap']);
-  const inputText = createElement('input', ['input-name']);
-  inputText.setAttribute('type', 'text');
 
   for (let index = 5; index >= 1; index -= 1) {
     const input = createElement('input', ['input-star']);
@@ -30,7 +42,6 @@ const createRatingInputComponent = () => {
   ratingInfo.append(textOne);
   ratingInfo.append(textTwo);
 
-  inputWrap.append(inputText);
   ratingInputStars.append(ratingInputForm);
   ratingInputStars.append(ratingInfo);
   ratingInputContainer.append(ratingInputStars);
@@ -52,19 +63,50 @@ const renderRatingComponent = (block) => {
   addClassesToElements([richtext], ['rating-richtext']);
   const ratingInputComponent = createRatingInputComponent();
 
-  const apiButton = button.querySelector('a');
-  //   const apiUrl = apiButton.getAttribute('href');
-  apiButton.removeAttribute('href');
-  //   console.log(apiUrl);
+  const inputFeedbackWrap = createElement('div', ['input-feedback-wrap']);
+  const feedbackHead = createElement('p', ['feedback-head']);
+  const inputfeedback = createElement('textarea', ['input-name']);
+  feedbackHead.append('How could we improve your experience?');
+
+  inputFeedbackWrap.append(feedbackHead);
+  inputFeedbackWrap.append(inputfeedback);
+
+  const starLables = ratingInputComponent.querySelectorAll('.label-star');
+
+  onAnyElemntClick(starLables, () => {
+    addClassesToElements([inputFeedbackWrap], ['active']);
+  });
 
   ratingWrapper.append(head);
   ratingWrapper.append(subhead);
   ratingWrapper.append(ratingInputComponent);
+  ratingWrapper.append(inputFeedbackWrap);
   ratingWrapper.append(ratePara);
   ratingWrapper.append(button);
 
   ratingComponent.append(ratingWrapper);
   ratingComponent.append(richtext);
+
+  const apiButton = button.querySelector('a');
+  const apiUrl = apiButton.getAttribute('href');
+  apiButton.removeAttribute('href');
+
+  apiButton.addEventListener('click', () => {
+    const formElem = ratingComponent.querySelector('form');
+    const data = Object.fromEntries(new FormData(formElem).entries());
+    const feedBack = inputfeedback.value;
+    const successMessage = createElement('div', ['feedback-success']);
+    successMessage.innerHTML = '<p class="text">We thank you for your review.</p>';
+    ratingWrapper.innerHTML = '';
+    ratingWrapper.append(successMessage);
+    callFeedBackAPI({
+      api: apiUrl,
+      data: {
+        ...data,
+        feedBack,
+      },
+    });
+  });
 
   return ratingComponent;
 };
