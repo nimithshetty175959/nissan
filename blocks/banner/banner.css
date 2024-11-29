@@ -32,18 +32,19 @@ main .banner-wrapper {
     color: #fff;
 }
 .banner .data-wrapper .data-block h3 {
-    font-size: 30px;
-    margin: 0 0 25px 0;
+    font-size: 42px;
+    margin: 0 0 40px 0;
     position: relative;
     transition: 0.5s;
+    font-weight: 100;
 }
 .banner .data-wrapper .data-block h4 {
     font-size: 15px;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
     font-weight: 100;
 }
 .banner .data-wrapper .data-block h5 {
-    font-size: 11px;
+    font-size: 12px;
     margin: 0;
     font-weight: 100;
 }
