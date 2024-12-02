@@ -1,3 +1,4 @@
+import { fetchApiGET } from '../../scripts/api.js';
 import {
   addClassesToElements,
   createElement,
@@ -5,11 +6,8 @@ import {
 } from '../../scripts/dom.js';
 
 const callFeedBackAPI = async (apiData) => {
-  const rawResponse = await fetch(apiData.api, {
-    method: 'POST',
-    body: JSON.stringify(apiData.data),
-  });
-  await rawResponse.json();
+  const URL = `${apiData.api}?rating=${apiData.data?.rating}&feedback=${apiData.data?.feedBack}`;
+  await fetchApiGET(URL);
 };
 
 const createRatingInputComponent = () => {

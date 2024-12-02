@@ -33,6 +33,7 @@
     display: flex;
     gap: 15px;
     align-items: flex-start;
+    margin-top: 5px;
 }
 .news-data-wrap .news-date {
     white-space: nowrap;
