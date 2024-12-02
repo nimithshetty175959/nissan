@@ -7,10 +7,6 @@ import {
 const callFeedBackAPI = async (apiData) => {
   const rawResponse = await fetch(apiData.api, {
     method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
     body: JSON.stringify(apiData.data),
   });
   await rawResponse.json();

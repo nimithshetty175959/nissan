@@ -38,6 +38,12 @@ const onAnyElemntClick = (elements, callback) => {
     element.addEventListener('click', callback);
   }
 };
+const removeClickEvent = (elements, callback) => {
+  for (let i = 0; i < elements.length; i += 1) {
+    const element = elements[i];
+    element.removeEventListener('click', callback, false);
+  }
+};
 
 export {
   createElement,
@@ -45,4 +51,5 @@ export {
   addClassesToElements,
   removeClassesFromElements,
   onAnyElemntClick,
+  removeClickEvent,
 };
