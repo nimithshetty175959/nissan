@@ -26,19 +26,18 @@ const getThumbnailImages = (block) => {
 
 const imageAnimate = (block) => {
   const imageMain = block.querySelector(
-    '.banner-container.active .image-block img',
+    '.banner-container.active .image-block .imge-bg-image',
   );
   const imageElements = block.querySelectorAll(
-    '.banner-container .image-block img',
+    '.banner-container .image-block .imge-bg-image',
   );
   const heads = block.querySelectorAll('.banner .data-wrapper .data-block h3');
-  const imageSrc = imageMain.src;
+  const imageSrc = imageMain.getAttribute('data-src');
   const animBlocks = block.querySelectorAll('.banner-img-anim-block');
   for (let index = 0; index < animBlocks.length; index += 1) {
     const element = animBlocks[index];
     const imageHolder = element.querySelector('.image-holder');
     imageHolder.style.backgroundImage = `url(${imageSrc})`;
-    imageHolder.style.width = `${imageMain.width}px`;
     element.style.width = '100%';
     removeClassesFromElements([element], ['animate']);
     setTimeout(() => {
@@ -93,10 +92,16 @@ const createBanerItem = (element, index) => {
     const elementCopy = dataItems[i].cloneNode(true);
     const tagName = elementCopy.children[0].tagName.toLowerCase();
     if (tagName === 'picture') {
-      elementCopy.classList.add('image-item');
+      addClassesToElements([elementCopy], ['image-item', 'imge-bg-image']);
+      const image = elementCopy.querySelector('img');
+      const imgSrc = image.getAttribute('src');
+      elementCopy.innerHTML = '';
+      elementCopy.style.backgroundImage = `url(${imgSrc})`;
+      elementCopy.style.width = `${window.screen.width}px`;
+      elementCopy.setAttribute('data-src', imgSrc);
       imageElements.push(elementCopy);
     } else if (elementHasClass(elementCopy.children[0], 'button-container')) {
-      elementCopy.classList.add('button-item');
+      addClassesToElements([elementCopy], ['button-item']);
       buttonBlock.append(elementCopy);
     } else {
       dataBlock.append(elementCopy);

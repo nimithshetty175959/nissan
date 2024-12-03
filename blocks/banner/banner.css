@@ -37,16 +37,19 @@ main .banner-wrapper {
     position: relative;
     transition: 0.5s;
     font-weight: 100;
+    letter-spacing: 0;
 }
 .banner .data-wrapper .data-block h4 {
     font-size: 15px;
     margin: 0 0 10px 0;
     font-weight: 100;
+    letter-spacing: 0;
 }
 .banner .data-wrapper .data-block h5 {
     font-size: 12px;
     margin: 0;
     font-weight: 100;
+    letter-spacing: 0;
 }
 .banner .data-wrapper .data-block div {
     width: 23em;
@@ -151,18 +154,29 @@ main .banner-wrapper {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     transform: scale(1.1);
+    min-height: 580px;
+    width: 1263px;
 }
-.banner-container.active .image-block img {
-    transition: 3s;
+.banner-container.active .image-block .imge-bg-image {
+    transition: 2.5s;
     transform: scale(1.1);
+    height: 100vh;
+    width: 1200px;
 }
-.banner-container.active .image-block img.animate {
+.banner-container.active .image-block .imge-bg-image.animate {
     transform: scale(1);
 }
 
 .nav-silde-container{
     width: 459px;
     overflow: hidden;
+}
+.banner-data-block .imge-bg-image {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 580px;
 }

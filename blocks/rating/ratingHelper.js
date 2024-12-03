@@ -31,8 +31,8 @@ const createRatingInputComponent = () => {
   const ratingInfo = createElement('div', ['rating-info']);
   const textOne = createElement('span', ['text-status']);
   const textTwo = createElement('span', ['text-status']);
-  textOne.append('Not satisfactory');
-  textTwo.append('Very satisfactory');
+  textOne.append('Pas satisfaisante');
+  textTwo.append('Très satisfaisante');
   ratingInfo.append(textOne);
   ratingInfo.append(textTwo);
 
@@ -60,7 +60,7 @@ const renderRatingComponent = (block) => {
   const inputFeedbackWrap = createElement('div', ['input-feedback-wrap']);
   const feedbackHead = createElement('p', ['feedback-head']);
   const inputfeedback = createElement('textarea', ['input-name']);
-  feedbackHead.append('How could we improve your experience?');
+  feedbackHead.append('Comment pourrions-nous améliorer votre expérience ?');
 
   inputFeedbackWrap.append(feedbackHead);
   inputFeedbackWrap.append(inputfeedback);
@@ -90,7 +90,7 @@ const renderRatingComponent = (block) => {
     const data = Object.fromEntries(new FormData(formElem).entries());
     const feedBack = inputfeedback.value;
     const successMessage = createElement('div', ['feedback-success']);
-    successMessage.innerHTML = '<p class="text">We thank you for your review.</p>';
+    successMessage.innerHTML = '<p class="text">Nous vous remercions pour votre avis.</p>';
     ratingWrapper.innerHTML = '';
     ratingWrapper.append(successMessage);
     callFeedBackAPI({
