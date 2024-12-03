@@ -99,6 +99,8 @@ const createBanerItem = (element, index) => {
       elementCopy.style.backgroundImage = `url(${imgSrc})`;
       elementCopy.style.width = `${window.screen.width}px`;
       elementCopy.setAttribute('data-src', imgSrc);
+      image.style.display = 'none';
+      elementCopy.append(image);
       imageElements.push(elementCopy);
     } else if (elementHasClass(elementCopy.children[0], 'button-container')) {
       addClassesToElements([elementCopy], ['button-item']);
