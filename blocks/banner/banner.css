@@ -95,7 +95,7 @@ main .banner-wrapper {
 }
 .banner .data-wrapper {
     position: absolute;
-    bottom: 12em;
+    bottom: 4em;
     left: 5em;
     z-index: 1;
 }
