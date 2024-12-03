@@ -404,5 +404,41 @@
         "label": "Card Link"
       }
     ]
+  },
+  {
+    "id": "estimatevehicle",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "header",
+        "label": "Header",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtext",
+        "label": "Subtext",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "primarylink",
+        "label": "Primary Link"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkText",
+        "label": "Primary Link Text"
+      }
+    ]
   }
 ]
