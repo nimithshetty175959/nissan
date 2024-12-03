@@ -4,6 +4,8 @@ import {
   removeClassesFromElements,
 } from '../../scripts/dom.js';
 
+import { fetchApiGET } from '../../scripts/api.js';
+
 const { gsap } = window;
 
 const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
@@ -12,8 +14,8 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
       scrub: 1,
       trigger: vehicleOverlay,
       endTrigger: vehicleContainer,
-      start: '100vh+=700px',
-      end: 'bottom bottom',
+      start: 'top center-=300',
+      end: 'bottom center-=300',
       ease: 'power2.inOut',
     },
   });
@@ -23,8 +25,8 @@ const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
       scrub: 1,
       trigger: vehicleBGI,
       endTrigger: vehicleContainer,
-      start: '100vh+=100px',
-      end: 'bottom bottom',
+      start: 'top center-=200',
+      end: 'bottom center-=200',
       ease: 'power2.inOut',
     },
   });
@@ -65,8 +67,7 @@ const updateDomData = (block, value) => {
 
 const getDynamicContent = async (apiLink, block) => {
   const apiURL = apiLink.querySelector('a').href;
-  const response = await fetch(apiURL);
-  const vehicleList = await response.json();
+  const vehicleList = await fetchApiGET(apiURL);
   const customSelect = createElement('div', ['v-custom-select']);
   const selectTrigger = createElement('div', ['v-select-trigger']);
   const selectOptions = createElement('ul', ['v-select-options']);

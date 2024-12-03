@@ -1,5 +1,5 @@
 import { elementHasClass } from '../../scripts/dom.js';
-import { renderRatingComponent } from './ratingHelper.js';
+import { getNewsComponent } from './newsHelper.js';
 
 let cloneBlock = null;
 
@@ -10,9 +10,9 @@ export default async function decorate(block) {
   }
 
   if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
-    const ratingComponent = renderRatingComponent(block);
+    const newsComponent = await getNewsComponent(block);
     block.innerHTML = '';
-    block.append(ratingComponent);
+    block.append(newsComponent);
   } else {
     block.innerHTML = '';
     const banners = cloneBlock.children;

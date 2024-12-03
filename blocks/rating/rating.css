@@ -1,0 +1,142 @@
+.rating-component {
+    text-align: center;
+    padding: 80px 0;
+    margin: 40px 0px;
+  }
+  .rating-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .rating-submit .button-container {
+    display: block;
+    margin-top: 30px;
+  }
+  .rating-submit .button-container a {
+    margin: 0;
+    display: inline-block;
+    background-color: #000;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    width: 148px;
+    text-transform: uppercase;
+  }
+  .rating-wrappper .rating-head p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .rating-wrappper .rating-sub-head p {
+    font-size: 17px;
+    margin-top: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+  }
+  .rating-wrappper .rating-para p {
+    letter-spacing: 0.6px;
+    font-size: 11.27px;
+    margin-top: 4px;
+    font-weight: normal;
+  }
+  
+  .rating-richtext {
+    text-align: left;
+    margin-top: 6em;
+    padding: 0 80px;
+  }
+  .rating-richtext p {
+    font-size: 12px !important;
+    line-height: 17px;
+    font-weight: 100;
+  }
+  
+  .rating-input-stars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .rating-input-stars .input-stars-form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10px;
+  }
+  .rating-input-stars .input-stars-form input[type="radio"] {
+    display: none;
+  }
+  .rating-input-stars .input-stars-form label {
+    background-image: url("./star-image.png");
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    color: transparent;
+    background-size: 60px;
+    background-position: 30px 0px;
+  }
+  .rating-input-stars .input-stars-form label:hover,
+  .rating-input-stars .input-stars-form label:hover ~ label {
+    background-position: 0px 0px;
+  }
+  
+  .rating-input-stars .input-stars-form input[type="radio"]:checked ~ label {
+    background-position: 0px 0px;
+  }
+  .rating-info {
+    display: flex;
+    width: 263px;
+    justify-content: space-between;
+    letter-spacing: 0.6px;
+    font-size: 11.27px;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+  .rating-component .rating-wrappper {
+    min-height: 315px;
+    position: relative;
+  }
+  .rating-component .rating-wrappper .feedback-success {
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    font-weight: bold;
+    font-size: 23px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  .input-feedback-wrap {
+    padding: 0 10px;
+    display: none;
+  }
+  .input-feedback-wrap.active {
+    display: block;
+  }
+  .input-feedback-wrap .feedback-head {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .input-feedback-wrap textarea {
+    border: solid 1px #000;
+    border-radius: 0;
+    margin-top: 12px;
+    color: #222;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.5em;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    resize: none;
+    font-size: 13px;
+  }
+  .input-feedback-wrap textarea:focus {
+    outline: none;
+  }
+  

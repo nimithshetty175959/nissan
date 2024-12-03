@@ -16,6 +16,19 @@ const createMenuIcon = () => {
   return menuIcon;
 };
 
+const createSearchBar = () => {
+  const menuSearchBar = createElement('div', ['menu-search-bar']);
+  const inputElem = createElement('input', ['menu-search-input']);
+  const inputSearch = createElement('img', ['menu-search-img']);
+  inputElem.type = 'text';
+  inputElem.setAttribute('placeholder', 'What are you looking for?');
+  inputSearch.src = '/content/nissan-universal-editor.resource/icons/search-black.svg';
+  menuSearchBar.append(inputSearch);
+  menuSearchBar.append(inputElem);
+
+  return menuSearchBar;
+};
+
 const groupElements = (elements) => {
   const groupedElements = [];
   let currentGroup = [];
@@ -76,6 +89,8 @@ const createMenuBar = (navContainer) => {
   const menuList = createElement('div', ['header-menu-list']);
   const groupedElements = groupElements(navContainer.children);
   const menuLinks = getMenuLinksContainer(groupedElements);
+  const searchBar = createSearchBar();
+  menuList.append(searchBar);
   menuList.append(menuLinks);
   menuContainer.append(menuOverlay);
   menuContainer.append(menuList);

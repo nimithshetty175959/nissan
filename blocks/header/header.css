@@ -363,12 +363,12 @@ header nav .nav-tools {
   transform-origin: bottom left;
 }
 .header-menu-list .menu-list-wrapper {
-  margin-top: 60px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 138px);
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 0 29px;
+  padding: 0px 30px;
   text-align: left;
+  margin-top: 12px;
 }
 .menu-list-level-1 {
   padding: 10px 0;
@@ -411,4 +411,27 @@ header nav .nav-tools {
 .menu-list-level-1 ul li a:hover {
   text-decoration: none;
   opacity: 0.6;
+}
+.menu-search-bar {
+  margin-top: 92px;
+  text-align: left;
+  padding: 0 50px;
+  position: relative;
+}
+.menu-search-bar .menu-search-input {
+  border: 0;
+  border-bottom: 1px solid black;
+  width: 100%;
+  font-size: 14px;
+  padding: 0px 0 7px 30px;
+  box-sizing: border-box;
+}
+.menu-search-bar .menu-search-input:focus {
+  outline: none;
+}
+.menu-search-bar .menu-search-img {
+  position: absolute;
+  bottom: 6px;
+  transform: scale(0.9);
+  pointer-events: none;
 }
