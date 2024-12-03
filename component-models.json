@@ -261,11 +261,11 @@
          "value": ""
        },
        {
-        "component": "text",
+        "component": "reference",
         "valueType": "string",
-        "name": "text",
-        "label": "Text",
-        "value": ""
+        "name": "image",
+        "label": "Image",
+        "multi": false
       },
       {
         "component": "text",
@@ -275,11 +275,14 @@
         "value": ""
       },
       {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
+        "component": "aem-content",
+        "name": "primarylink",
+        "label": "Primary Link"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkText",
+        "label": "Primary Link Text"
       }
      ]
   },
