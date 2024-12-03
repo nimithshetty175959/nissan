@@ -251,6 +251,49 @@
      ]
   },
   {
+    "id": "estimate",
+    "fields": [
+       {
+         "component": "text",
+         "valueType": "string",
+         "name": "header",
+         "label": "Header",
+         "value": ""
+       },
+       {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundimage",
+        "label": "Background Image",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "subtext",
+        "label": "Subtext",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "primarylink",
+        "label": "Primary Link"
+      },
+      {
+        "component": "text",
+        "name": "primarylinkText",
+        "label": "Primary Link Text"
+      }
+     ]
+  },
+  {
     "id": "slides",
     "fields": [
       {
