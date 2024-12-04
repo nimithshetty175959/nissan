@@ -52,11 +52,11 @@ footer .footer .footer-section-one {
 
 .social-media-wrapper {
   display: flex;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .social-media-wrapper p {
-  padding: 0 8px 10px 0
+  padding: 0 8px 10px 0;
 }
 
 
@@ -84,4 +84,5 @@ footer .footer .footer-section-one {
 .social-media-wrapper .button {
   padding: 0 !important;
   margin: 0 !important;
+  background-color: var(--footer-bg-light-color);
 }
