@@ -180,3 +180,11 @@ main .banner-wrapper {
     width: 100%;
     min-height: 580px;
 }
+.section.nav-sections {
+    z-index: 5;
+    position: relative;
+}
+.section.nav-sections .default-content-wrapper {
+    position: absolute;
+    right: 0;
+}
