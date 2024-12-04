@@ -45,7 +45,6 @@ const getMobilityComponent = (block) => {
     // Check if the <a> tag exists and replace its content with the SVG
     if (linkElement) {
         linkElement.innerHTML = svgIcon; // Insert the SVG inside the <a> tag
-        linkElement.removeAttribute('href'); // Optionally remove the href if not needed
     }
 
     // Using GSAP to pin the .mobility-text and apply the blur effect on scroll
