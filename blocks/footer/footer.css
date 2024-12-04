@@ -84,5 +84,5 @@ footer .footer .footer-section-one {
 .social-media-wrapper .button {
   padding: 0 !important;
   margin: 0 !important;
-  background-color: var(--footer-bg-light-color);
+  background-color: var(--footer-bg-light-color) !important;
 }
