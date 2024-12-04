@@ -63,7 +63,7 @@ export default async function decorate(block) {
                 y: 0,
                 scrollTrigger: {
                     trigger: card,
-                    start: `bottom center+=${index * 50}`,
+                    start: `top center+=${index * 50}`,
                     toggleActions: "play reverse play reverse",
                 },
             }
