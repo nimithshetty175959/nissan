@@ -1,0 +1,25 @@
+.mobility-image > div {
+    position: relative;
+}
+
+.mobility-link-container {
+    justify-content: space-between;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 24px;
+    right: 0;
+    color: #fff;
+}
+
+.mobility-text {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mobility-text p {
+    font-size: 68px;
+    font-weight: 400;
+}
