@@ -3,7 +3,7 @@ Your project's description...
 
 ## Environments
 - Preview: https://main--nissan--nimithshetty175959.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Live: https://main--nissan--nimithshetty175959.aem.live/
 
 ## Installation
 
