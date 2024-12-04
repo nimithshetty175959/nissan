@@ -33,9 +33,9 @@ const getMobilityComponent = (block) => {
     }
 
     // Define the SVG icon as a string
-    const svgIcon = `<svg width="50" height="16" viewBox="0 0 50 16">
+    const svgIcon = ` <svg width="50" height="16" viewBox="0 0 50 16">
                     <g>
-                        <path d="M0 8H48M48 8L41 1M48 8L41 15" stroke="black" stroke-width="2"></path>
+                        <path d="M0 8H48M48 8L41 1M48 8L41 15" stroke="rgba(255, 255, 255, 1)" stroke-width="2"></path>
                     </g>
                 </svg>`;
 
