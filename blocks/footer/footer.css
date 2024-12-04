@@ -81,3 +81,7 @@ footer .footer .footer-section-one {
 .footer-legal > div {
   display: flex;
 }
+.social-media-wrapper .button {
+  padding: 0 !important;
+  margin: 0 !important;
+}
