@@ -328,11 +328,9 @@
     "id": "slides",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "image",
-        "label": "Image",
-        "multi": true
+        "label": "Image"
       },
       {
         "component": "richtext",
