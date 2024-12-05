@@ -92,6 +92,7 @@ main .banner-wrapper {
 }
 .nav-image-blocks .nav-image-block .image-item img {
     display: flex;
+    height: 83px;
 }
 .banner .data-wrapper {
     position: absolute;

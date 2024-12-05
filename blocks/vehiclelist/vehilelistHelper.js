@@ -71,7 +71,8 @@ const getDynamicContent = async (apiLink, block) => {
   const customSelect = createElement('div', ['v-custom-select']);
   const selectTrigger = createElement('div', ['v-select-trigger']);
   const selectOptions = createElement('ul', ['v-select-options']);
-  selectTrigger.append(vehicleList[0].vehicle);
+  const initialValue = vehicleList[0]?.vehicle || 'Tous les modèles';
+  selectTrigger.append(initialValue);
   vehicleList.forEach((item, i) => {
     const option = createElement('li', ['v-option']);
     if (i === 0) {

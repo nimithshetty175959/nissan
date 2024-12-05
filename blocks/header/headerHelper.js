@@ -22,7 +22,7 @@ const createSearchBar = () => {
   const inputSearch = createElement('img', ['menu-search-img']);
   inputElem.type = 'text';
   inputElem.setAttribute('placeholder', 'What are you looking for?');
-  inputSearch.src = '/content/nissan-universal-editor.resource/icons/search-black.svg';
+  inputSearch.src = '/icons/search-black.svg';
   menuSearchBar.append(inputSearch);
   menuSearchBar.append(inputElem);
 

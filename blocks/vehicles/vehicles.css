@@ -34,9 +34,6 @@
     /* Ensure natural wrapping for images */
 }
 
-.slide>div {
-    position: relative;
-}
 
 /* Offer Details Styling */
 .offer-details {

@@ -19,9 +19,11 @@
 .nissancards {
     display: grid;
     gap: 20px;
-    height: 80vh;
+    height: 100vh;
     grid-template-columns: 5fr 2fr 5fr 5fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    min-height: calc(100vh + 100px);
+    margin-bottom: 90px;
 }
 
 

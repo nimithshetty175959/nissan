@@ -26,3 +26,7 @@
 .mobility-link p{
     font-size: 24px;
 }
+.mobility-image img {
+    height: calc(100vh - 100px);
+    width: 100%;
+}
