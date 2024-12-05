@@ -1,13 +1,14 @@
-import { getMetadata } from '../../scripts/aem.js'; // If unused, consider removing this line
-import { loadFragment } from '../fragment/fragment.js'; // If unused, consider removing this line
+import { elementHasClass } from '../../scripts/dom.js';
 
 const { gsap, ScrollTrigger } = window;
+
+let cloneBlock = null;
 
 /**
  * Loads and decorates the promotional offer.
  * @param {Element} block - The block element to decorate.
  */
-export default async function decorate(block) {
+function vehicles() {
   const parentDiv = document.querySelector('.vehicles');
 
   // Add classes to child elements of the vehicles container
@@ -99,4 +100,24 @@ export default async function decorate(block) {
       },
     });
   });
+}
+
+export default async function decorate(block) {
+  const htmlElem = window.document.getElementsByTagName('html');
+  if (cloneBlock === null) {
+    cloneBlock = block.cloneNode(true);
+  }
+
+  if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
+    vehicles();
+  } else {
+    block.innerHTML = '';
+    const banners = cloneBlock.children;
+    for (let index = 0; index < banners.length; index += 1) {
+      const banner = banners[index];
+      setTimeout(() => {
+        block.append(banner);
+      }, index);
+    }
+  }
 }

@@ -1,10 +1,10 @@
 import { elementHasClass } from '../../scripts/dom.js';
 
-const cloneBlock = null;
+let cloneBlock = null;
 
 const { gsap, ScrollTrigger } = window;
 
-export default async function decorate(block) {
+function nissanCard() {
   // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger);
 
@@ -126,4 +126,24 @@ export default async function decorate(block) {
 
   // Process all cards
   cards.forEach(enhanceSubBlock);
+}
+
+export default async function decorate(block) {
+  const htmlElem = window.document.getElementsByTagName('html');
+  if (cloneBlock === null) {
+    cloneBlock = block.cloneNode(true);
+  }
+
+  if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
+    nissanCard();
+  } else {
+    block.innerHTML = '';
+    const banners = cloneBlock.children;
+    for (let index = 0; index < banners.length; index += 1) {
+      const banner = banners[index];
+      setTimeout(() => {
+        block.append(banner);
+      }, index);
+    }
+  }
 }

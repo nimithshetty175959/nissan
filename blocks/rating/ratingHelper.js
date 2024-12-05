@@ -1,4 +1,4 @@
-import { fetchApiGET } from '../../scripts/api.js';
+import { fetchApiPOST } from '../../scripts/api.js';
 import {
   addClassesToElements,
   createElement,
@@ -6,8 +6,8 @@ import {
 } from '../../scripts/dom.js';
 
 const callFeedBackAPI = async (apiData) => {
-  const URL = `${apiData.api}?rating=${apiData.data?.rating}&feedback=${apiData.data?.feedBack}`;
-  await fetchApiGET(URL);
+  // const URL = `${apiData.api}?rating=${apiData.data?.rating}&feedback=${apiData.data?.feedBack}`;
+  await fetchApiPOST(apiData.api, apiData.data);
 };
 
 const createRatingInputComponent = () => {
@@ -97,7 +97,7 @@ const renderRatingComponent = (block) => {
       api: apiUrl,
       data: {
         ...data,
-        feedBack,
+        feedback: feedBack,
       },
     });
   });
