@@ -62,10 +62,10 @@ export default async function decorate(block) {
   }
 
   if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
-    nissanCard();
     const nissancardsContainer = getcardsComponent(block);
     block.innerHTML = '';
     block.append(nissancardsContainer);
+    nissanCard();
   } else {
     block.innerHTML = '';
     const banners = cloneBlock.children;
