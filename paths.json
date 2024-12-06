@@ -2,7 +2,8 @@
   "mappings": [
     "/content/nissan-universal-editor/:/",
     "/content/nissan-universal-editor/configuration:/.helix/config.json",
-    "/content/nissan-universal-editor/metadata:/metadata.json"
+    "/content/nissan-universal-editor/metadata:/metadata.json",
+    "/content/nissan-universal-editor/headers:/headers.json"
   ],
   "includes": [
     "/content/nissan-universal-editor/"
