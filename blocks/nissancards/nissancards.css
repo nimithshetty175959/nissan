@@ -7,11 +7,16 @@
 }
 
 
-.default-content-wrapper>div {
+.section.nissancards-container .default-content-wrapper {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#simplifiez-vos-achats-avec-nissan {
+    font-size: 68px;
+    font-weight: 400;
 }
 
 /* Nissan Cards Wrapper */
