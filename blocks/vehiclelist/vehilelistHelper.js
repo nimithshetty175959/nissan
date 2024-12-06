@@ -8,6 +8,34 @@ import { fetchApiGET } from '../../scripts/api.js';
 
 const { gsap } = window;
 
+const vehicleJSON = [
+  {
+    vehicle: 'All models',
+    number: 2000,
+    link: 'https://www.nissan.fr/achat/voitures-a-vendre',
+  },
+  {
+    vehicle: 'ARIYA',
+    number: 50,
+    link: 'https://www.nissan.fr/achat/voitures-a-vendre?modelCodes=ariya&modelCodes=nouveau-ariya',
+  },
+  {
+    vehicle: 'Juke',
+    number: 750,
+    link: 'https://www.nissan.fr/achat/voitures-a-vendre?modelCodes=juke&modelCodes=nouveau-juke',
+  },
+  {
+    vehicle: 'Qashqai',
+    number: 1150,
+    link: 'https://www.nissan.fr/achat/voitures-a-vendre',
+  },
+  {
+    vehicle: 'X-Trail',
+    number: 300,
+    link: 'https://www.nissan.fr/achat/voitures-a-vendre?modelCodes=x-trail&modelCodes=nouveau-x-trail',
+  },
+];
+
 const animate = (vehicleContainer, vehicleOverlay, vehicleBGI) => {
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -67,7 +95,8 @@ const updateDomData = (block, value) => {
 
 const getDynamicContent = async (apiLink, block) => {
   const apiURL = apiLink.querySelector('a').href;
-  const vehicleList = await fetchApiGET(apiURL);
+  let vehicleList = await fetchApiGET(apiURL);
+  vehicleList = vehicleList.length === 0 ? vehicleJSON : vehicleList;
   const customSelect = createElement('div', ['v-custom-select']);
   const selectTrigger = createElement('div', ['v-select-trigger']);
   const selectOptions = createElement('ul', ['v-select-options']);
