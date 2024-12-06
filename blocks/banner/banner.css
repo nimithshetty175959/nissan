@@ -159,6 +159,7 @@ main .banner-wrapper {
     transform: scale(1.1);
     min-height: 580px;
     width: 1263px;
+    background-position: center;
 }
 .banner-container.active .image-block .imge-bg-image {
     transition: 2.5s;
@@ -180,6 +181,7 @@ main .banner-wrapper {
     background-size: cover;
     width: 100%;
     min-height: 580px;
+    background-position: center;
 }
 .section.nav-sections {
     z-index: 5;

@@ -94,13 +94,18 @@ const createBanerItem = (element, index) => {
     if (tagName === 'picture') {
       addClassesToElements([elementCopy], ['image-item', 'imge-bg-image']);
       const image = elementCopy.querySelector('img');
-      const imgSrc = image.getAttribute('src');
+      const imgSrc = image
+        .getAttribute('src')
+        .replaceAll('width=750', 'width=2000');
       elementCopy.innerHTML = '';
       elementCopy.style.backgroundImage = `url(${imgSrc})`;
       elementCopy.style.width = `${window.screen.width}px`;
       elementCopy.setAttribute('data-src', imgSrc);
-      image.style.display = 'none';
-      elementCopy.append(image);
+      console.log(imgSrc);
+      const image2 = createElement('img', []);
+      image2.style.display = 'none';
+      image2.setAttribute('src', imgSrc);
+      elementCopy.append(image2);
       imageElements.push(elementCopy);
     } else if (elementHasClass(elementCopy.children[0], 'button-container')) {
       addClassesToElements([elementCopy], ['button-item']);
