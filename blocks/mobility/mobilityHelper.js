@@ -85,6 +85,5 @@ const getMobilityComponent = (block) => {
   return mobilityContainer;
 };
 
-const newFun = {};
 
-export { getMobilityComponent, newFun };
+export { getMobilityComponent };

@@ -21,7 +21,7 @@
 
 /* Nissan Cards Wrapper */
 /* Container Grid Layout */
-.nissancards {
+.cards-container {
     display: grid;
     gap: 20px;
     height: 100vh;
@@ -59,7 +59,7 @@
 }
 
 /* Wrapper Div Styling */
-.wrapper-div {
+.cards-link-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,14 +85,14 @@
 }
 
 /* Adjust Text Placement for All Sub-blocks */
-.sub-block .wrapper-div {
+.sub-block .cards-link-container {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
 }
 
-.wrapper-div p {
+.cards-link-container p {
     color: white;
     font-family: var(--nissan-brand-bold);
 }
