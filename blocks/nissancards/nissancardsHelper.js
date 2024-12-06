@@ -3,11 +3,20 @@ import { addClassesToElements, createElement } from '../../scripts/dom.js';
 const { gsap, ScrollTrigger } = window;
 
 const getcardsComponent = (block) => {
+    const nissancardsWrapper = createElement('div', ['nissan-cards-wrapper']);
+    const nissantext = createElement('div', ['nissan-text']);
     const cardsContainer = createElement('div', ['cards-container']);
 
     Array.from(block.children).forEach((child, index) => {
+
+        if (!index){
+            child.classList.add('nissan-heading-text');
+            nissantext.appendChild(child);
+            return;
+        }
+
         child.classList.add('sub-block');
-        child.id = `id${index + 1}`;
+        child.id = `id${index}`;
 
         // Apply GSAP animation to the card
         gsap.fromTo(
@@ -56,8 +65,11 @@ const getcardsComponent = (block) => {
         // Append the modified child to the container
         cardsContainer.appendChild(child);
     });
+    nissancardsWrapper.appendChild(nissantext);
+    nissancardsWrapper.appendChild(cardsContainer);
 
-    return cardsContainer;
+
+    return nissancardsWrapper;
 };
 
 export { getcardsComponent };
