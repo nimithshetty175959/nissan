@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.vehicles {
+.vehicle-container {
     display: flex;
     flex-wrap: nowrap;
     gap: 20px;

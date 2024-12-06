@@ -1,4 +1,6 @@
 import { elementHasClass } from '../../scripts/dom.js';
+import { addClassesToElements, createElement } from '../../scripts/dom.js';
+import { getVehicleComponent } from './VehicleHelper.js';
 
 const { gsap, ScrollTrigger } = window;
 
@@ -9,46 +11,11 @@ let cloneBlock = null;
  * @param {Element} block - The block element to decorate.
  */
 function vehicles() {
-  const parentDiv = document.querySelector('.vehicles');
-
-  // Add classes to child elements of the vehicles container
-  if (parentDiv) {
-    Array.from(parentDiv.children).forEach((child, index) => {
-      const classes = ['offer-section', `slide-${index}`];
-      if (index === 0) {
-        classes.push('offer-text');
-      } else {
-        classes.push('slide');
-      }
-      child.classList.add(...classes);
-    });
-  }
-
-  const offerSections = Array.from(
-    document.querySelectorAll('.offer-section'),
-  ).slice(1);
-
-  offerSections.forEach((section) => {
-    const [pictureContainer, richTextDiv, buttonContainerDiv] = section.children;
-    if (!pictureContainer) {
-      console.error('No picture container found for offer section.');
-      return;
-    }
-
-    if (richTextDiv && buttonContainerDiv) {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('offer-details');
-      wrapper.append(richTextDiv, buttonContainerDiv);
-      pictureContainer.parentElement.appendChild(wrapper);
-    } else {
-      console.warn('Missing richtext or button-container div in section.');
-    }
-  });
 
   // GSAP Animations
   gsap.registerPlugin(ScrollTrigger);
 
-  const containers = gsap.utils.toArray('.vehicles');
+  const containers = gsap.utils.toArray('.vehicle-container');
   containers.forEach((cont) => {
     const { innerHeight } = window;
     const slides = gsap.utils.toArray('.offer-section', cont);
@@ -109,6 +76,9 @@ export default async function decorate(block) {
   }
 
   if (!elementHasClass(htmlElem[0], 'adobe-ue-edit')) {
+    const vehicleContainer = getVehicleComponent(block);
+    block.innerHTML = '';
+    block.append(vehicleContainer);
     vehicles();
   } else {
     block.innerHTML = '';
