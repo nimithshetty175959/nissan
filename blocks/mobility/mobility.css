@@ -44,9 +44,6 @@
     margin: 0;
 }
 
-.section.mobility-container {
-    height: 1330px;
-}
 .mobility-overlay {
     position: absolute;
     width: 100%;
