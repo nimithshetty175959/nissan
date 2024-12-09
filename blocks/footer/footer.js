@@ -8,7 +8,9 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
   // load footer as fragment
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  const footerPath = footerMeta
+    ? new URL(footerMeta, window.location).pathname
+    : '/footer';
   const fragment = await loadFragment(footerPath);
 
   // decorate footer DOM
@@ -31,7 +33,10 @@ export default async function decorate(block) {
   if (childDivs.length >= 2) {
     childDivs[childDivs.length - 3].classList.add('social-media-links');
     childDivs[childDivs.length - 2].classList.add('section-two');
-    childDivs[childDivs.length - 1].classList.add('section-two', 'footer-legal');
+    childDivs[childDivs.length - 1].classList.add(
+      'section-two',
+      'footer-legal',
+    );
   }
 
   const secondfooter = parentDiv.querySelectorAll('.section-two');
@@ -51,9 +56,17 @@ export default async function decorate(block) {
     linksWrapper.append(element);
   });
   linksWrapper.classList.add('social-media-wrapper');
-  const socialMediaContainer = document.querySelector('.social-media-links div');
+  const socialMediaContainer = document.querySelector(
+    '.social-media-links div',
+  );
   socialMediaContainer.classList.add('nissan-on-social-media');
   const targetElement = document.querySelector('.nissan-on-social-media');
   targetElement.insertAdjacentElement('afterend', linksWrapper);
 
+  const socialLinks = document.querySelectorAll('.social-media-wrapper img');
+  for (let index = 0; index < socialLinks.length; index += 1) {
+    const element = socialLinks[index];
+    const text = element.getAttribute('data-icon-name');
+    element.setAttribute('alt', text);
+  }
 }
