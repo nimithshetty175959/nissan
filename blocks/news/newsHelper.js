@@ -73,8 +73,8 @@ const getCarouselContainer = (newsItems) => {
     'news-item-list',
   ]);
   const arrowWrap = createElement('div', ['arrow-wrapper']);
-  const arrowLeft = createElement('button', ['carousel-arrow', 'left']);
-  const arrowRight = createElement('button', ['carousel-arrow', 'right']);
+  const arrowLeft = createElement('a', ['carousel-arrow', 'left']);
+  const arrowRight = createElement('a', ['carousel-arrow', 'right']);
   arrowLeft.innerHTML = getArrow();
   arrowRight.innerHTML = getArrow();
   arrowWrap.append(arrowLeft);

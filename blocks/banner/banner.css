@@ -61,16 +61,14 @@ main .banner-wrapper {
 }
 .banner-nav-container .nav-tabs .nav-tab {
     text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
+    font-weight: 100;
+    color: rgb(239,239,239);
     cursor: pointer;
     font-size: 14px;
     letter-spacing: 2px;
     opacity: 0.6;
 }
-.banner-nav-container .nav-tabs .nav-tab.active {
-    opacity: 1;
-}
+.banner-nav-container .nav-tabs .nav-tab.active {color: #fff;opacity: 1;}
 .nav-image-blocks {
     display: flex;
     box-shadow: 0 3px 17px 4px black;
@@ -98,7 +96,7 @@ main .banner-wrapper {
     position: absolute;
     bottom: 4em;
     left: 5em;
-    z-index: 1;
+    z-index: 5;
 }
 .banner .button-block {
     display: flex;
@@ -132,7 +130,7 @@ main .banner-wrapper {
     height: 100%;
     left: 0;
     top: 0;
-    background-color: #00000070;
+    background-color: #0909092b;
     z-index: 1;
 }
 .banner-data-block {

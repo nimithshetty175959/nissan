@@ -312,6 +312,7 @@ main .section.highlight {
     cursor: pointer;
     position: relative;
     margin: 0;
+    display: inline-block;
 }
 .carousel-arrow.disabled {
     opacity: 0.1;
@@ -322,5 +323,5 @@ main .section.highlight {
 }
 .carousel-arrow.left {
     transform: rotateZ(180deg);
-    bottom: 3px;
+    bottom: 2px;
 }

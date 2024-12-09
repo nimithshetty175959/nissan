@@ -76,7 +76,6 @@ const createBanerItem = (element, index) => {
     'banner-container',
     `nav-image-block-${index}`,
   ]);
-  const bannerOverlayBlock = createElement('div', ['banner-overlay-block']);
   const bannerDataBlock = createElement('div', ['banner-data-block']);
   const bannerImageAnimation = createElement('div', ['banner-img-anim-block']);
   if (index === 0) {
@@ -91,6 +90,7 @@ const createBanerItem = (element, index) => {
   for (let i = 0; i < dataItems.length; i += 1) {
     const elementCopy = dataItems[i].cloneNode(true);
     const tagName = elementCopy.children[0].tagName.toLowerCase();
+    const bannerOverlayBlock = createElement('div', ['banner-overlay-block']);
     if (tagName === 'picture') {
       addClassesToElements([elementCopy], ['image-item', 'imge-bg-image']);
       const image = elementCopy.querySelector('img');
@@ -101,11 +101,11 @@ const createBanerItem = (element, index) => {
       elementCopy.style.backgroundImage = `url(${imgSrc})`;
       elementCopy.style.width = `${window.screen.width}px`;
       elementCopy.setAttribute('data-src', imgSrc);
-      console.log(imgSrc);
       const image2 = createElement('img', []);
       image2.style.display = 'none';
       image2.setAttribute('src', imgSrc);
       elementCopy.append(image2);
+      elementCopy.append(bannerOverlayBlock);
       imageElements.push(elementCopy);
     } else if (elementHasClass(elementCopy.children[0], 'button-container')) {
       addClassesToElements([elementCopy], ['button-item']);
@@ -115,11 +115,14 @@ const createBanerItem = (element, index) => {
     }
   }
 
+  const bannerOverlayBlock = createElement('div', ['banner-overlay-block']);
+
   const image = createElement('div', ['image-holder']);
 
   image.style.backgroundImage = '';
   image.style.width = `${window.screen.width}px`;
   bannerImageAnimation.append(image);
+  bannerImageAnimation.append(bannerOverlayBlock);
   imagesBlock.append(imageElements[0]);
   bannerDataBlock.append(imagesBlock);
 
@@ -129,7 +132,6 @@ const createBanerItem = (element, index) => {
   dataWrapper.append(buttonBlock);
 
   bannerDataBlock.append(dataWrapper);
-  bannerContainer.append(bannerOverlayBlock);
   bannerContainer.append(bannerDataBlock);
 
   return bannerContainer;
