@@ -1,5 +1,4 @@
 .mobility-image > div {
-    position: relative;
 }
 
 .mobility-link-container {
@@ -8,9 +7,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 24px;
+    padding: 11px 20px;
     right: 0;
     color: #fff;
+    align-items: center;
+    z-index: 1;
 }
 
 .mobility-text {
@@ -23,10 +24,42 @@
     font-size: 68px;
     font-weight: 400;
 }
-.mobility-link p{
+.mobility-link p {
     font-size: 24px;
+    margin: 0;
+}
+.mobility-image {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
 }
 .mobility-image img {
-    height: calc(100vh - 100px);
     width: 100%;
+    position: absolute;
+    transform-origin: center center;
+    object-fit: cover;
+    height: 100%;
+}
+.mb-text p {
+    margin: 0;
+}
+
+.section.mobility-container {
+    height: 1330px;
+}
+.mobility-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000005c;
+    top: 0;
+}
+
+.mobility-image img {
+    transform: scale(1);
+    transition: 1s;
+}
+
+.mobility-image:hover img {
+    transform: scale(1.2);
 }

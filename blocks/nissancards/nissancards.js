@@ -39,9 +39,7 @@ function nissanCard() {
   };
 
   // Apply blur and opacity animation to default content wrapper
-  const defaultContentWrapper = document.querySelector(
-    '.nissan-heading-text',
-  );
+  const defaultContentWrapper = document.querySelector('.nissan-heading-text');
 
   addScrollAnimation(defaultContentWrapper, {
     start: 'top top',
@@ -52,7 +50,6 @@ function nissanCard() {
     blur: 'blur(20px)',
     opacity: 0,
   });
-
 }
 
 export default async function decorate(block) {

@@ -6,12 +6,14 @@ const getMobilityComponent = (block) => {
   const blockCopy = block.cloneNode(true);
   const [mobilityText, mobilityImage, mobilityLink, mbText] = blockCopy.children;
   const mobilityContainer = createElement('div', ['mobility-contianer']);
+  const mobilityOverlay = createElement('div', ['mobility-overlay']);
 
   // Add classes to each element
   addClassesToElements([mobilityText], ['mobility-text']);
   addClassesToElements([mobilityImage], ['mobility-image']);
   addClassesToElements([mobilityLink], ['mobility-link']);
   addClassesToElements([mbText], ['mb-text']);
+  mobilityImage.append(mobilityOverlay);
 
   // Append mobilityText to the mobilityContainer
   mobilityContainer.append(mobilityText);
@@ -85,5 +87,5 @@ const getMobilityComponent = (block) => {
   return mobilityContainer;
 };
 
-
+// eslint-disable-next-line import/prefer-default-export
 export { getMobilityComponent };
