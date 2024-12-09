@@ -7,11 +7,11 @@
     width: 100%;
 }
 .estimate-container .estimate-bg {
-    height: 100vh;
+    height: calc(100vh + 40px);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    min-height: calc(100vh + 40px);
+    min-height: 650px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -89,4 +89,9 @@
     font-size: 12px;
     letter-spacing: 0.9px;
     font-family: "Nissan Brand Light";
+}
+
+.estimate-container .estimate-car img{
+    width: 82vw;
+    height: auto;
 }
