@@ -103,3 +103,8 @@ a.button:any-link,
 button {
     background-color: black;
 }
+
+.offer-details div:first-child p a {
+    font-variant-position: super;
+    color: black;
+}
