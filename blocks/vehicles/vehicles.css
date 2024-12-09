@@ -106,5 +106,9 @@ button {
 
 .offer-details div:first-child p a {
     font-variant-position: super;
-    color: black;
+    color: #616161;
+    padding-left: 5px;
+}
+.offer-details div:first-child p a:hover {
+    text-decoration: none;
 }
